@@ -12,6 +12,16 @@
             --text-dark: #333;
             --white: #ffffff;
             --wood-brown: #4a3728;
+            --nav-bg: #ffffff;
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --primary-blue: #ecf0f1;
+            --light-bg: #1a1a1a;
+            --text-dark: #f8f9fa;
+            --white: #121212;
+            --nav-bg: #1a1a1a;
         }
 
         * {
@@ -19,6 +29,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         body {
@@ -30,8 +41,8 @@
 
         /* Navigation */
         nav {
-            background: var(--white);
-            padding: 1rem 5%;
+            background: var(--nav-bg);
+            padding: 0.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,9 +53,21 @@
             z-index: 1000;
         }
 
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
         .logo img {
             height: 50px;
             vertical-align: middle;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .nav-links a {
@@ -52,11 +75,24 @@
             color: var(--primary-blue);
             margin-left: 20px;
             font-weight: 600;
-            transition: color 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--accent-color);
+        }
+
+        /* Dark Mode Toggle Button */
+        #dark-mode-toggle {
+            background: var(--accent-color);
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         /* Hero Section */
@@ -70,7 +106,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            margin-top: 70px;
+            margin-top: 60px;
         }
 
         .hero-content h1 {
@@ -90,7 +126,7 @@
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary-blue);
+            color: var(--accent-color);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -114,7 +150,6 @@
             align-items: center;
         }
 
-        /* Responsive Image Fix */
         .product-card img {
             max-width: 100%;
             height: auto;
@@ -126,67 +161,35 @@
             transform: translateY(-10px);
         }
 
-        /* Wood Dyer Branding */
+        /* Wood Dyer Branding - Stays dark even in light mode */
         .wood-dyer-brand {
             background-color: var(--wood-brown);
             color: #f3e5ab;
         }
-
         .wood-dyer-brand h2 { color: #f3e5ab; }
 
         /* Contact Section */
         #contact {
-            background-color: #f1f4f7;
-        }
-
-        .contact-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            flex-wrap: wrap;
+            background-color: var(--light-bg);
         }
 
         .contact-info {
-            background: white;
+            background: var(--white);
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             max-width: 500px;
             width: 100%;
             text-align: center;
         }
 
-        .contact-info h3 {
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .contact-item {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .contact-item strong {
-            color: var(--accent-color);
-            display: block;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
         .contact-item a {
             text-decoration: none;
             color: var(--text-dark);
-            transition: color 0.3s;
         }
 
-        .contact-item a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Footer */
         footer {
-            background: var(--primary-blue);
+            background: #1a1a1a;
             color: white;
             text-align: center;
             padding: 40px 0;
@@ -204,18 +207,25 @@
         }
     </style>
 </head>
-<body>
+<body id="home">
 
     <nav>
-        <div class="logo">
-            <img src="https://drive.google.com/thumbnail?id=16d9ga5S3iwEHWdnOWBGiE3GCWnr6THdT&sz=w500" alt="Ombre Paints Logo">
-        </div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#water-based">Water Based</a>
-            <a href="#oil-based">Oil Based</a>
-            <a href="#wood-dyer">Wood Dyer</a>
-            <a href="#contact">Contact</a>
+        <a href="#home" class="logo-link">
+            <div class="logo">
+                <img src="https://drive.google.com/thumbnail?id=16d9ga5S3iwEHWdnOWBGiE3GCWnr6THdT&sz=w500" alt="Ombre Paints Logo">
+            </div>
+        </a>
+        
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#water-based">Water Based</a>
+                <a href="#oil-based">Oil Based</a>
+                <a href="#wood-dyer">Wood Dyer</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button id="dark-mode-toggle" onclick="toggleDarkMode()">
+                <span id="mode-icon">🌙</span> Dark Mode
+            </button>
         </div>
     </nav>
 
@@ -235,7 +245,7 @@
             <div class="product-card"><h3>Ombre Putty</h3></div>
             <div class="product-card"><h3>Ombre Super Emulsion</h3></div>
             <div class="product-card">
-                <img src="./abc.jpg" alt="Weather Shield Bucket">
+                <img src="./abc.jpg" alt="Weather Shield">
                 <h3>Ombre Weather Shield</h3>
             </div>
             <div class="product-card"><h3>Exterior & Interior Primer</h3></div>
@@ -247,8 +257,8 @@
             <h2>Oil Based Range</h2>
         </div>
         <div class="product-grid">
-            <div class="product-card" style="background: white;"><h3>Ombre Matt Enamel</h3></div>
-            <div class="product-card" style="background: white;"><h3>Ombre Synthetic Enamel</h3></div>
+            <div class="product-card" style="background: var(--white);"><h3>Ombre Matt Enamel</h3></div>
+            <div class="product-card" style="background: var(--white);"><h3>Ombre Synthetic Enamel</h3></div>
         </div>
     </section>
 
@@ -257,37 +267,24 @@
             <h2>Wood Dyer Brand</h2>
         </div>
         <div class="product-grid">
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: white;"><h3>Wood Dyer NC Sealer</h3></div>
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: white;"><h3>Wood Dyer NC Lacquer</h3></div>
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: white;"><h3>Wood Dyer NC Primer</h3></div>
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: white;"><h3>Wood Dyer Colour</h3></div>
+            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>Wood Dyer NC Sealer</h3></div>
+            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>Wood Dyer NC Lacquer</h3></div>
+            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>Wood Dyer NC Primer</h3></div>
+            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>Wood Dyer Colour</h3></div>
         </div>
     </section>
 
     <section id="contact" class="section">
         <div class="section-title">
             <h2>Contact Us</h2>
-            <p>Reach out to us for orders and inquiries</p>
         </div>
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Get In Touch</h3>
-                <div class="contact-item">
-                    <strong>Primary Contact</strong>
-                    Zafar Abbas
-                </div>
-                <div class="contact-item">
-                    <strong>Phone</strong>
-                    <a href="tel:03349739730">0334-9739730</a>
-                </div>
-                <div class="contact-item">
-                    <strong>Email</strong>
-                    <a href="mailto:szakazmi@gmail.com">szakazmi@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <strong>Availability</strong>
-                    All Oil and Water based products are available in all colors.
-                </div>
+                <div class="contact-item"><strong>Primary Contact</strong> Zafar Abbas</div>
+                <div class="contact-item"><strong>Phone</strong> <a href="tel:03349739730">0334-9739730</a></div>
+                <div class="contact-item"><strong>Email</strong> <a href="mailto:szakazmi@gmail.com">szakazmi@gmail.com</a></div>
+                <div class="contact-item"><strong>Availability</strong> All Oil and Water based products are available in all colors.</div>
             </div>
         </div>
     </section>
@@ -295,6 +292,24 @@
     <footer>
         <p>&copy; 2026 Ombre Paints. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const btn = document.getElementById('dark-mode-toggle');
+            const icon = document.getElementById('mode-icon');
+            
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.textContent = '☀️';
+                btn.innerHTML = '<span id="mode-icon">☀️</span> Light Mode';
+            } else {
+                icon.textContent = '🌙';
+                btn.innerHTML = '<span id="mode-icon">🌙</span> Dark Mode';
+            }
+        }
+    </script>
 
 </body>
 </html>
