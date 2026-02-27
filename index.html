@@ -108,6 +108,18 @@
             border-top: 5px solid var(--accent-color);
             transition: transform 0.3s;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Responsive Image Fix */
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
         }
 
         .product-card:hover {
@@ -222,7 +234,10 @@
         <div class="product-grid">
             <div class="product-card"><h3>Ombre Putty</h3></div>
             <div class="product-card"><h3>Ombre Super Emulsion</h3></div>
-            <div class="product-card"><h3>Ombre Weather Shield</h3></div>
+            <div class="product-card">
+                <img src="./abc.jpg" alt="Weather Shield Bucket">
+                <h3>Ombre Weather Shield</h3>
+            </div>
             <div class="product-card"><h3>Exterior & Interior Primer</h3></div>
         </div>
     </section>
