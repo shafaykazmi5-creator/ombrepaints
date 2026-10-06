@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ombré Paints | Sequence of Colors & Wood Dyer Master Wood Finishes</title>
+
+  <!-- Browser tab icon: put favicon.png (square, 512x512) in the same folder -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
   
   <!-- Meta description and OpenGraph tags for WhatsApp & social sharing -->
   <meta name="description" content="Ombré Paints (Sequence of Colors) - Premium 100% acrylic architectural wall coatings and Wood Dyer master wood finishing solutions. Rawalpindi & Islamabad, Pakistan.">
@@ -2186,6 +2190,7 @@
     // Adds "Packing" and "Shades" lines to every product card from productData
     function enhanceProductCards() {
       document.querySelectorAll('button[onclick^="openProductModal("]').forEach(btn => {
+        if (btn.closest('#pane-home')) return;   // featured cards on the home page stay compact
         const key = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
         const d = productData[key];
         const row = btn.parentElement;
