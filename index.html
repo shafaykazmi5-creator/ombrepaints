@@ -1,316 +1,2097 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ombre Paints | Premium Architectural & Wood Finishes</title>
-    <style>
-        :root {
-            --primary-blue: #2c3e50;
-            --accent-color: #3498db;
-            --light-bg: #f8f9fa;
-            --text-dark: #333;
-            --white: #ffffff;
-            --wood-brown: #4a3728;
-            --nav-bg: #ffffff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ombré Paints | Sequence of Colors & Wood Dyer Master Wood Finishes</title>
+  
+  <!-- Google Fonts: Bodoni Moda (Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
 
-        body.dark-mode {
-            --primary-blue: #ecf0f1;
-            --light-bg: #1a1a1a;
-            --text-dark: #f8f9fa;
-            --white: #121212;
-            --nav-bg: #1a1a1a;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body {
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--white);
-            scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevents horizontal scroll */
-        }
-
-        /* Navigation - Responsive Fix */
-        nav {
-            background: var(--nav-bg);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
-            flex-wrap: wrap; /* Allows wrap on small screens */
-        }
-
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 40px; /* Slightly smaller for mobile */
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 60vh;
-            min-height: 400px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 60px;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2rem, 8vw, 3.5rem); /* Responsive font size */
-            margin-bottom: 1rem;
-        }
-
-        /* Sections */
-        .section {
-            padding: 60px 5%; /* Increased horizontal padding for small screens */
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-
-        .product-card {
-            background: var(--light-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border-top: 5px solid var(--accent-color);
-            text-align: center;
-        }
-
-        /* Wood Dyer Branding */
-        .wood-dyer-brand {
-            background-color: var(--wood-brown);
-            color: #f3e5ab;
-        }
-        .wood-dyer-brand h2 { color: #f3e5ab; }
-
-        /* Contact Section Fix */
-        .contact-container {
-            display: flex;
-            justify-content: center;
-        }
-
-        .contact-info {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 500px; /* Limits size on desktop, shrinks on mobile */
-            text-align: center;
-        }
-
-        .contact-item {
-            margin-bottom: 15px;
-        }
-
-        .contact-item a {
-            text-decoration: none;
-            color: var(--accent-color);
-            word-break: break-all; /* Prevents long emails from breaking layout */
-        }
-
-        /* Responsive Media Queries */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 10px;
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#0B2545',
+              secondary: '#134074',
+              accent: '#EE6C4D',
+              gold: '#C59B27',
+              goldHover: '#B2881E',
+              wood: '#6B3A19',
+              woodDark: '#4A230B',
+              surface: '#FFFFFF',
+              surfaceMuted: '#F8FAFC',
+              surfaceSoft: '#F1F5F9',
+              border: '#E2E8F0',
+              borderDark: '#CBD5E1',
+              dark: '#0F172A',
+              muted: '#64748B'
             }
-            .nav-right {
-                margin-top: 10px;
-                flex-direction: column;
-                width: 100%;
-            }
-            .nav-links {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .hero {
-                margin-top: 120px; /* Adjusted for taller nav */
-            }
-            .section {
-                padding: 40px 20px;
-            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Bodoni Moda"', 'Georgia', 'serif'],
+            wood: ['"Cinzel"', '"Plus Jakarta Sans"', 'sans-serif']
+          },
+          boxShadow: {
+            'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
+            'card': '0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04)',
+            'hover': '0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06)',
+            'bucket': '0 20px 35px -10px rgba(15, 23, 42, 0.14)'
+          }
         }
+      }
+    }
+  </script>
 
-        #dark-mode-toggle {
-            background: var(--accent-color);
-            border: none;
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
+  <style>
+    /* Wood Dyer Typography Treatment */
+    .wood-dyer-text {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.05em;
+      color: #532b13;
+      text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+    }
 
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 30px 10px;
-        }
-    </style>
+    /* Product Bucket Stage Presentation */
+    .product-stage {
+      background: radial-gradient(circle at 50% 65%, #f8fafc 0%, #edf2f7 100%);
+    }
+
+    /* Smooth Image Display transitions */
+    .product-img {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .group:hover .product-img {
+      transform: translateY(-6px) scale(1.03);
+    }
+  </style>
 </head>
-<body id="home">
+<body class="bg-brand-surfaceMuted text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white">
 
-    <nav>
-        <a href="#home" class="logo-link">
-            <div class="logo">
-                <img src="https://drive.google.com/thumbnail?id=16d9ga5S3iwEHWdnOWBGiE3GCWnr6THdT&sz=w500" alt="Ombre Paints Logo">
-            </div>
+
+  <!-- ======================================================== -->
+  <!-- 1. TOP UTILITY BAR (CLEAN LIGHT THEME + ACCURATE DATA)   -->
+  <!-- ======================================================== -->
+  <div class="bg-brand-surface border-b border-brand-border text-brand-muted text-xs py-2.5 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2.5">
+      
+      <!-- Helpline & Working Hours -->
+      <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 text-[11px] sm:text-xs">
+        <a href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-brand-dark font-semibold hover:text-brand-gold transition">
+          <i class="ph ph-whatsapp-logo text-emerald-600 text-sm"></i>
+          <span>Official WhatsApp: <strong class="text-brand-dark font-bold">+92 332 5007200</strong></span>
         </a>
+        <span class="hidden md:inline text-slate-300">|</span>
+        <span class="hidden md:inline-flex items-center gap-1 text-slate-500">
+          <i class="ph ph-clock text-slate-400"></i> Mon - Sat: 9:00 AM – 7:00 PM PKT
+        </span>
+      </div>
+
+      <!-- Right Dealership Callout -->
+      <div class="flex items-center gap-4 text-[11px] sm:text-xs">
+        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold">
+          <i class="ph ph-seal-check"></i> 100% Acrylic Guarantee
+        </span>
+        <button onclick="showTab('dealership')" class="hover:text-brand-gold text-brand-dark transition flex items-center gap-1 font-semibold">
+          <i class="ph ph-storefront text-brand-gold"></i>
+          <span>Authorized Dealerships</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- 2. MAIN HEADER & LOGOS (LIGHT LUXURY AESTHETIC)          -->
+  <!-- ======================================================== -->
+  <header class="sticky top-0 z-40 bg-brand-surface/95 backdrop-blur-md border-b border-brand-border shadow-subtle transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 sm:h-24">
         
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="#water-based">Water</a>
-                <a href="#oil-based">Oil</a>
-                <a href="#wood-dyer">Wood</a>
-                <a href="#contact">Contact</a>
+        <!-- MAIN LOGO BRAND (Image: "logo.png" with fallback) -->
+        <a href="#home" onclick="showTab('home')" class="flex items-center gap-3 group cursor-pointer py-1">
+          <div class="flex items-center">
+            <!-- Exact logo image with primary & secondary folder fallback -->
+            <img 
+              src="logo.png" 
+              alt="Ombré Paints - Sequence of Colors" 
+              class="h-12 sm:h-16 w-auto object-contain"
+              onerror="trySubfolderImage(this, 'logo.png', () => {
+                this.classList.add('hidden');
+                document.getElementById('brandLogoFallback').classList.remove('hidden');
+              })"
+            />
+            
+            <!-- Crisp Typography Fallback if file isn't found yet -->
+            <div id="brandLogoFallback" class="hidden flex-col items-start leading-none pl-1">
+              <span class="font-serif text-2xl sm:text-3xl font-extrabold tracking-wide text-brand-dark group-hover:text-brand-gold transition duration-200">
+                Ombré Paints
+              </span>
+              <span class="font-serif text-[11px] sm:text-xs text-brand-muted tracking-wider mt-1 italic font-normal">
+                Sequence of Colors
+              </span>
             </div>
-            <button id="dark-mode-toggle" onclick="toggleDarkMode()">
-                <span id="mode-icon">🌙</span> Dark Mode
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden lg:flex items-center space-x-1">
+          <button onclick="showTab('home')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all text-brand-dark bg-brand-surfaceSoft shadow-subtle" data-tab="home">
+            Home
+          </button>
+          <button onclick="showTab('ombre')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all" data-tab="ombre">
+            Ombré Paints
+          </button>
+          <button onclick="showTab('wooddyer')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-amber-50 transition-all flex items-center gap-1.5" data-tab="wooddyer">
+            <span class="w-2 h-2 rounded-full bg-brand-wood"></span> Wood Dyer
+          </button>
+          <button onclick="showTab('calculator')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all" data-tab="calculator">
+            Paint Calculator
+          </button>
+          <button onclick="showTab('dealership')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all" data-tab="dealership">
+            Dealership
+          </button>
+          <button onclick="showTab('about')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all" data-tab="about">
+            About Us
+          </button>
+          <button onclick="showTab('contact')" class="nav-btn px-3.5 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all" data-tab="contact">
+            Contact
+          </button>
+        </nav>
+
+        <!-- Right Quick Action: Direct WhatsApp Call to Action -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a 
+            href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints%2C%20I%20would%20like%20to%20place%20an%20order%20or%20inquire." 
+            target="_blank" 
+            rel="noopener"
+            class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs tracking-wide transition shadow-sm"
+          >
+            <i class="ph ph-whatsapp-logo text-base"></i>
+            <span>WhatsApp Order</span>
+          </a>
+
+          <button onclick="showTab('dealership')" class="bg-brand-primary hover:bg-brand-secondary text-white font-bold px-4 py-2.5 rounded-xl text-xs tracking-wider uppercase transition shadow-sm">
+            Distributor Portal
+          </button>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <div class="flex lg:hidden items-center gap-2">
+          <a 
+            href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints" 
+            target="_blank" 
+            rel="noopener"
+            class="p-2.5 rounded-xl bg-emerald-600 text-white text-base"
+            aria-label="WhatsApp"
+          >
+            <i class="ph ph-whatsapp-logo"></i>
+          </a>
+          <button onclick="toggleMobileMenu()" class="p-2.5 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-200 transition" aria-label="Toggle Menu">
+            <i class="ph ph-list text-2xl" id="menuToggleIcon"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Responsive Dropdown Menu -->
+    <div id="mobileDrawer" class="hidden lg:hidden bg-brand-surface border-b border-brand-border px-4 pt-3 pb-6 space-y-1 shadow-card">
+      <button onclick="showTab('home'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
+        <span>Home Overview</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('ombre'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
+        <span>Ombré Architectural Paints</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('wooddyer'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-wood hover:bg-amber-50 flex items-center justify-between">
+        <span>Wood Dyer Timber Solutions</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('calculator'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
+        <span>Paint &amp; Wood Calculator</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('dealership'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
+        <span>Dealership Application</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('about'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
+        <span>About Us &amp; Quality</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('contact'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
+        <span>Contact &amp; Support</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+
+      <div class="pt-3 border-t border-slate-200 mt-2">
+        <a 
+          href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints%2C%20I%20want%20to%20place%20an%20order." 
+          target="_blank" 
+          rel="noopener"
+          class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm"
+        >
+          <i class="ph ph-whatsapp-logo text-base"></i>
+          <span>Direct WhatsApp Order (+92 332 5007200)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- MAIN MULTI-VIEW BODY CONTAINER                           -->
+  <!-- ======================================================== -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 min-h-screen">
+
+
+    <!-- ==================================================== -->
+    <!-- VIEW 1: HOME PAGE                                    -->
+    <!-- ==================================================== -->
+    <section id="pane-home" class="view-pane">
+      
+      <!-- Hero Banner in Crisp White & Slate -->
+      <div class="relative overflow-hidden rounded-3xl bg-brand-surface border border-brand-border p-8 sm:p-14 lg:p-16 mb-12 shadow-card">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-xs font-bold text-amber-900">
+              <i class="ph ph-sparkle text-brand-gold"></i>
+              <span>Official Manufacturer &bull; Sequence of Colors</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-brand-dark tracking-tight leading-[1.15]">
+              Beauty That Protects. <br>
+              <span class="text-brand-secondary font-serif italic">
+                Paints &amp; Woodcraft.
+              </span>
+            </h1>
+
+            <p class="text-brand-muted text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Formulated with 100% pure acrylic polymeric binders for resilient exterior walls and smooth interior emulsions, paired with the specialized <strong class="text-brand-wood font-semibold">Wood Dyer™</strong> line for luxury furniture and timber architecture.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 pt-2">
+              <button onclick="showTab('ombre')" class="px-6 py-3.5 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2">
+                <i class="ph ph-paint-roller text-base"></i>
+                <span>Explore Ombré Range</span>
+              </button>
+              <button onclick="showTab('wooddyer')" class="px-6 py-3.5 rounded-xl bg-brand-wood hover:bg-brand-woodDark text-white font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center gap-2">
+                <i class="ph ph-tree text-base"></i>
+                <span>Wood Dyer Collection</span>
+              </button>
+              <a 
+                href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints%2C%20please%20send%20price%20catalog" 
+                target="_blank" 
+                rel="noopener"
+                class="px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2"
+              >
+                <i class="ph ph-whatsapp-logo text-base"></i>
+                <span>+92 332 5007200</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Featured Dual Product Cards -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="grid grid-cols-2 gap-4 max-w-md w-full">
+              
+              <!-- Featured Ombre Bucket -->
+              <div onclick="showTab('ombre')" class="cursor-pointer bg-brand-surfaceSoft rounded-2xl p-4 border border-brand-border hover:border-brand-primary hover:shadow-hover transition duration-300 group text-center flex flex-col justify-between">
+                <div class="w-full h-44 product-stage rounded-xl p-2 flex items-center justify-center mb-3">
+                  <img 
+                    src="Weather Shield.jpg" 
+                    alt="Weather Shield" 
+                    class="max-h-36 w-auto object-contain product-img drop-shadow-md"
+                    onerror="trySubfolderImage(this, 'Weather Shield.jpg', () => renderCardPlaceholder(this, 'Weather Shield', 'Ombré Paint'))"
+                  />
+                </div>
+                <div>
+                  <h3 class="text-sm font-bold text-brand-dark group-hover:text-brand-secondary transition">Weather Shield</h3>
+                  <p class="text-[11px] text-brand-muted mt-0.5">100% Acrylic Exterior</p>
+                </div>
+              </div>
+
+<!-- Featured Wood Dyer Can -->
+<div onclick="showTab('wooddyer')" class="cursor-pointer bg-brand-surfaceSoft rounded-2xl p-4 border border-brand-border hover:border-brand-primary transition group">
+  <div class="w-full h-44 product-stage rounded-xl p-2 flex items-center justify-center mb-3">
+    <img
+      src="WD Sealer.jpeg"
+      alt="Wood Sealer"
+      class="max-h-36 w-auto object-contain product-img drop-shadow-md"
+      onerror="trySubfolderImage(this, 'WD Sealer.jpeg', () => renderCardPlaceholder(this, 'Wood Sealer', 'Wood Dyer'))"
+    />
+  </div>
+  <div>
+    <h3 class="text-sm font-bold text-brand-wood group-hover:text-amber-900 transition">Wood Sealer</h3>
+    <p class="text-[11px] text-brand-muted mt-0.5">Superior Quality Sanding Sealer</p>
+  </div>
+</div>              
+</div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Two Pillars: Ombre Paints & Wood Dyer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        
+        <!-- Architectural Coatings Pillar -->
+        <div class="bg-brand-surface border border-brand-border rounded-3xl p-8 hover:shadow-hover transition duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-secondary bg-blue-50 px-3 py-1 rounded-md border border-blue-100">Architectural Coating</span>
+            <i class="ph ph-paint-brush-broad text-2xl text-brand-secondary"></i>
+          </div>
+          <h2 class="text-3xl font-serif font-bold text-brand-dark">Ombré Paints</h2>
+          <p class="text-xs text-brand-gold font-serif italic mt-0.5">Sequence of Colors &mdash; Beauty That Protects</p>
+          <p class="text-brand-muted text-sm mt-3 leading-relaxed">
+            Formulated to deliver crack-resistant flexibility, long-lasting brightness, and scrubbable hygiene. Built for Pakistani weather conditions from heavy monsoon downpours to scorching summer heat.
+          </p>
+          <ul class="mt-4 space-y-2 text-xs text-slate-700">
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-600 text-base"></i> 100% Pure Acrylic binder prevents flaking and blistering</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-600 text-base"></i> Luxury Emulsion with hairline crack bridging power</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-emerald-600 text-base"></i> Weather Pro facade defense against mold &amp; algae</li>
+          </ul>
+          <button onclick="showTab('ombre')" class="mt-6 w-full py-3 bg-brand-surfaceSoft hover:bg-slate-200 border border-brand-border text-brand-dark font-bold text-xs rounded-xl uppercase tracking-wider transition">
+            View All Ombré Products &rarr;
+          </button>
+        </div>
+
+        <!-- Wood Dyer Specialty Timber Pillar -->
+        <div class="bg-brand-surface border border-amber-200/80 rounded-3xl p-8 hover:shadow-hover transition duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-wood bg-amber-50 px-3 py-1 rounded-md border border-amber-200">Timber Artisan Division</span>
+            <i class="ph ph-tree text-2xl text-brand-wood"></i>
+          </div>
+          <h2 class="text-3xl font-wood font-extrabold text-brand-wood tracking-wide">WOOD DYER™</h2>
+          <p class="text-xs text-amber-700 font-sans uppercase tracking-widest mt-0.5">Innovative Wood Solutions &bull; Superior Quality</p>
+          <p class="text-brand-muted text-sm mt-3 leading-relaxed">
+            Professional carpentry and woodcare chemistry designed to preserve wood grain, prevent graying, and provide scratch resistance for furniture, doors, stairs, and hardwood decks.
+          </p>
+          <ul class="mt-4 space-y-2 text-xs text-slate-700">
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-amber-700 text-base"></i> 2X UV protection preserves organic timber warmth</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-amber-700 text-base"></i> Tough PU Varnish resists alcohol, heat, and shoes</li>
+            <li class="flex items-center gap-2"><i class="ph ph-check-circle text-amber-700 text-base"></i> Deep-pore Wood Colours &amp; rapid-sanding Sealers</li>
+          </ul>
+          <button onclick="showTab('wooddyer')" class="mt-6 w-full py-3 bg-amber-50 hover:bg-amber-100 border border-amber-300 text-brand-wood font-bold text-xs rounded-xl uppercase tracking-wider transition">
+            View Wood Dyer Range &rarr;
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Trust Metrics Bar -->
+      <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-subtle">
+        <div>
+          <p class="text-3xl font-extrabold text-brand-primary">100%</p>
+          <p class="text-xs text-brand-muted mt-1">Pure Acrylic Resin</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-brand-wood">2X</p>
+          <p class="text-xs text-brand-muted mt-1">UV Protection for Timber</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-emerald-600">+92 332</p>
+          <p class="text-xs text-brand-muted mt-1">Official WhatsApp Support</p>
+        </div>
+        <div>
+          <p class="text-3xl font-extrabold text-brand-gold">48-Hr</p>
+          <p class="text-xs text-brand-muted mt-1">Direct Dealer Dispatch</p>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ==================================================== -->
+    <!-- VIEW 2: OMBRÉ PAINTS CATALOG (ALL 8 PRODUCTS)        -->
+    <!-- ==================================================== -->
+    <section id="pane-ombre" class="view-pane hidden">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-brand-border mb-8">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-secondary bg-blue-50 px-3 py-1 rounded-md border border-blue-100">Architectural Paints</span>
+            <span class="text-xs text-brand-muted">&bull; 8 Core Formulations</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-brand-dark mt-2">Ombré Paints Collection</h2>
+          <p class="text-xs text-brand-gold font-serif italic">Sequence of Colors &mdash; Beauty That Protects</p>
+        </div>
+
+        <div class="flex items-center gap-2 overflow-x-auto pb-1">
+          <button onclick="filterOmbre('all')" class="ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-primary text-white shadow-sm" data-filter="all">All Products</button>
+          <button onclick="filterOmbre('exterior')" class="ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-surfaceSoft text-slate-600 hover:text-brand-dark" data-filter="exterior">Exterior Walls</button>
+          <button onclick="filterOmbre('interior')" class="ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-surfaceSoft text-slate-600 hover:text-brand-dark" data-filter="interior">Interior Walls</button>
+          <button onclick="filterOmbre('enamel')" class="ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-surfaceSoft text-slate-600 hover:text-brand-dark" data-filter="enamel">Enamels</button>
+          <button onclick="filterOmbre('prep')" class="ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-surfaceSoft text-slate-600 hover:text-brand-dark" data-filter="prep">Surface Prep</button>
+        </div>
+      </div>
+
+      <!-- Ombre Product Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- 1. Weather Pro -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="exterior">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Exterior Facade</span>
+              <img 
+                src="Weather Pro.jpg" 
+                alt="Ombré Weather Pro" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Weather Pro.jpg', () => renderCardPlaceholder(this, 'Weather Pro', 'Exterior Shield'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-amber-700 uppercase tracking-wider">Beauty That Protects</span>
+              <span class="text-[11px] text-slate-500 font-mono">100% Acrylic</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Weather Pro</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              Premium exterior protective coating with anti-algal bio-inhibitors. Formulated for luxury residential and commercial facades.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 100 - 120 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 1L, 4L (Gallon), 16L (Drum)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('weatherpro')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
             </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Weather%20Pro" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
         </div>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Ombre Paints</h1>
-            <p>Premium Architectural & Wood Coatings</p>
-            <a href="#contact" style="display:inline-block; padding: 12px 30px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; font-weight: 600;">Get a Quote</a>
-        </div>
-    </header>
-
-    <section id="water-based" class="section">
-        <div class="section-title"><h2>Water Based</h2></div>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
-                <h3>Ombre Putty</h3></div>
-            <div class="product-card">
-                <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
-                <h3>Ombre Super Emulsion</h3></div>
-            <div class="product-card">
-                <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
-                <h3>Ombre Weather Shield</h3>
+        <!-- 2. Weather Shield -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="exterior">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-sky-100 text-sky-900 border border-sky-200">Rain &amp; Sun Shield</span>
+              <img 
+                src="Weather Shield.jpg" 
+                alt="Ombré Weather Shield" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Weather Shield.jpg', () => renderCardPlaceholder(this, 'Weather Shield', 'Exterior Wall'))"
+              />
             </div>
-            <div class="product-card">
-                <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
-                <h3>Exterior & Interior Primer</h3></div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-sky-700 uppercase tracking-wider">Smooth Finish</span>
+              <span class="text-[11px] text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">100% Eco</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Weather Shield</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              100% acrylic-based smooth exterior wall coating with intense color retention and resistance to dirt pick-up.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 110 - 130 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 1L, 4L (Gallon), 16L (Drum)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('weathershield')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Weather%20Shield" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
         </div>
+
+        <!-- 3. Luxury Emulsion -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="interior">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-pink-100 text-pink-900 border border-pink-200">Interior Luxury</span>
+              <img 
+                src="Luxury Emulsion.jpeg" 
+                alt="Ombré Luxury Emulsion" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Luxury Emulsion.jpeg', () => renderCardPlaceholder(this, 'Luxury Emulsion', 'Interior Silk'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-pink-700 uppercase tracking-wider">Silky Smooth</span>
+              <span class="text-[11px] text-amber-700 font-semibold">Extra Coverage</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Luxury Emulsion</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              Hairline crack resistant interior wall emulsion. Rich flow and leveling with outstanding washability for luxury homes.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 120 - 140 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 1L, 4L (Gallon), 16L (Drum)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('luxury')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Luxury%20Emulsion" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Super Emulsion -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="interior">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-purple-100 text-purple-900 border border-purple-200">Smooth Interior</span>
+              <img 
+                src="Super Emulsion.jpg" 
+                alt="Ombré Super Emulsion" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Super Emulsion.jpg', () => renderCardPlaceholder(this, 'Super Emulsion', 'Interior Matt'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-purple-700 uppercase tracking-wider">Smooth Finish</span>
+              <span class="text-[11px] text-slate-500 font-mono">High Opacity</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Super Emulsion</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              Contractor-grade high opacity interior wall and ceiling emulsion with uniform roller spread and natural composition.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 100 - 115 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 1L, 4L (Gallon), 16L (Drum)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('superemulsion')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Super%20Emulsion" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Matt Enamel -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="enamel">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-100 text-indigo-900 border border-indigo-200">Matt Undercoat</span>
+              <img 
+                src="Matt Enamel.jpeg" 
+                alt="Ombré Matt Enamel" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Matt Enamel.jpeg', () => renderCardPlaceholder(this, 'Matt Enamel', 'Acrylic Undercoat'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-indigo-700 uppercase tracking-wider">Kitchen &amp; Bath Matt</span>
+              <span class="text-[11px] text-emerald-700 font-semibold">Anti-Mould</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Matt Enamel</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              All-in-one acrylic sealer and undercoat with outstanding hiding power. Resists mould, dirt, steam, and fading in wet trims.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 120 - 140 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 0.91L, 3.64L (Gallon)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('mattenamel')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Matt%20Enamel" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Synthetic Enamel -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="enamel">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-100 text-cyan-900 border border-cyan-200">Mirror Gloss</span>
+              <img 
+                src="Synthetic Enamel.jpg" 
+                alt="Ombré Synthetic Enamel" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Synthetic Enamel.jpg', () => renderCardPlaceholder(this, 'Synthetic Enamel', 'Wood & Metal Gloss'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-cyan-800 uppercase tracking-wider">Metal &amp; Wood</span>
+              <span class="text-[11px] text-amber-700 font-semibold">Extra Coverage</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Synthetic Enamel</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              Tough alkyd enamel for doors, windows, gates, and iron railings. UV-shielded with mirror-gloss weather endurance.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 115 - 135 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 0.91L, 3.64L (Gallon)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('synthetictin')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Synthetic%20Enamel" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Wall Primer -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="prep">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 border border-emerald-200">Base Foundation</span>
+              <img 
+                src="Primer.jpeg" 
+                alt="Ombré Wall Primer" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Primer.jpeg', () => renderCardPlaceholder(this, 'Wall Primer', 'Acrylic Sealer'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Foundation Tie-Coat</span>
+              <span class="text-[11px] text-slate-500 font-mono">100% Acrylic</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Wall Primer</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              Seals porosity on fresh plaster and concrete. Resists alkali salts and stops topcoat paint suction.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 85 - 100 sq ft / Liter</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 4L (Gallon), 16L (Drum)</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('primer')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Wall%20Primer" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Wall Putty -->
+        <div class="ombre-item-card bg-brand-surface border border-brand-border hover:border-slate-400 rounded-3xl p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-bucket group" data-category="prep">
+          <div>
+            <div class="w-full h-56 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-slate-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-200 text-slate-800">Crack Filling</span>
+              <img 
+                src="Putty.jpg" 
+                alt="Ombré Wall Putty" 
+                class="max-h-48 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'Putty.jpg', () => renderCardPlaceholder(this, 'Wall Putty', 'Acrylic Filler'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Surface Leveling</span>
+              <span class="text-[11px] text-amber-700 font-semibold">Easy Sanding</span>
+            </div>
+            <h3 class="text-lg font-bold text-brand-dark group-hover:text-brand-secondary transition">Ombré Wall Putty</h3>
+            <p class="text-xs text-brand-muted mt-1 line-clamp-2">
+              100% acrylic paste putty for filling voids. Creates an ultra-smooth porcelain base for luxury emulsions.
+            </p>
+
+            <div class="mt-3 py-2 border-y border-slate-100 text-[11px] text-slate-600 space-y-1">
+              <p><strong class="text-brand-dark">Coverage:</strong> 20 - 25 sq ft / kg</p>
+              <p><strong class="text-brand-dark">Packaging:</strong> 5kg Pail, 20kg Bucket</p>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-2 flex items-center gap-2">
+            <button onclick="openProductModal('putty')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specifications
+            </button>
+            <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Wall%20Putty" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
+              <i class="ph ph-whatsapp-logo text-base"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
     </section>
 
-    <section id="oil-based" class="section" style="background-color: var(--light-bg);">
-        <div class="section-title"><h2>Oil Based</h2></div>
-        <div class="product-grid">
-            <div class="product-card" style="background: var(--white);"><h3>Ombre Matt Enamel</h3><img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
+
+    <!-- ==================================================== -->
+    <!-- VIEW 3: WOOD DYER PRODUCTS (ALL 6 SOLUTIONS)         -->
+    <!-- ==================================================== -->
+    <section id="pane-wooddyer" class="view-pane hidden">
+      
+      <!-- Wood Dyer Dedicated Banner & Logo (Exact Wood Dyer.png) -->
+      <div class="relative overflow-hidden rounded-3xl bg-brand-surface border border-amber-200 p-8 sm:p-12 mb-10 shadow-card">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          
+          <div class="space-y-4 max-w-2xl text-center md:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-brand-wood text-xs font-bold tracking-wider uppercase">
+              <i class="ph ph-tree-evergreen"></i> Master Artisan Woodcraft Division
             </div>
-            <div class="product-card" style="background: var(--white);"><h3>Ombre Synthetic Enamel</h3><img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
+
+            <!-- Authentic Wood Dyer Logo Display -->
+            <div class="flex items-center justify-center md:justify-start">
+              <img 
+                src="Wood Dyer.png" 
+                alt="Wood Dyer Official Logo" 
+                class="h-14 sm:h-16 w-auto object-contain"
+                onerror="trySubfolderImage(this, 'Wood Dyer.png', () => {
+                  this.classList.add('hidden');
+                  document.getElementById('woodDyerTextFallback').classList.remove('hidden');
+                })"
+              />
+
+              <!-- Fallback Title -->
+              <div id="woodDyerTextFallback" class="hidden">
+                <h2 class="text-4xl sm:text-5xl font-extrabold wood-dyer-text uppercase">
+                  WOOD DYER
+                </h2>
+                <p class="text-xs sm:text-sm font-semibold tracking-widest text-amber-800 uppercase mt-0.5">
+                  Innovative Wood Solutions &bull; Superior Quality
+                </p>
+              </div>
             </div>
+
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Formulated to enrich natural wood grain pores and shield fine timber from torrential rain, sunlight oxidation, and heavy footwear abrasion.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
+              <a href="#woodSystem" class="px-5 py-2.5 rounded-xl bg-brand-wood hover:bg-brand-woodDark text-white font-extrabold text-xs uppercase tracking-wider transition shadow-sm">
+                4-Step Finishing Routine
+              </a>
+              <a 
+                href="https://wa.me/923325007200?text=Hello%20Wood%20Dyer%2C%20I%20need%20wood%20finishing%20advisory" 
+                target="_blank" 
+                rel="noopener"
+                class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2 shadow-sm"
+              >
+                <i class="ph ph-whatsapp-logo text-base"></i>
+                <span>Direct Timber Hotline</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Highlight Quality Badge -->
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 text-center max-w-xs w-full">
+            <i class="ph ph-shield-check text-4xl text-brand-wood mb-2"></i>
+            <h3 class="text-brand-dark font-bold text-base">Long Lasting Protection</h3>
+            <p class="text-xs text-slate-600 mt-1">2x UV absorbers prevent grain graying and outdoor finish cracking.</p>
+          </div>
+
         </div>
+      </div>
+
+      <!-- Wood Dyer 6 Core Products Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- WD 1: Synthetic Clear Varnish (Tall Can) -->
+        <div class="bg-brand-surface border border-amber-200 hover:border-amber-400 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-hover group">
+          <div>
+            <div class="w-full h-60 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-amber-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Tall Can Series</span>
+              <img 
+                src="WD Clear Varnish.jpeg" 
+                alt="WD Clear Varnish" 
+                class="max-h-52 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'WD Clear Varnish.jpeg', () => renderCardPlaceholder(this, 'Clear Varnish', 'Wood Dyer'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-brand-wood uppercase tracking-wider">All Timber Types</span>
+              <span class="text-[11px] text-amber-800 font-semibold">Weatherproof</span>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-wood transition font-wood">WD Synthetic Clear Varnish</h3>
+            <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+              Crack and peel-resistant clear finish. Shields exterior fences, wooden eaves, and fine doors from moisture and sunlight.
+            </p>
+
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> 2x UV protection stops sunlight bleaching</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Fast drying with deep water beading resistance</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Retains natural timber elasticity</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openProductModal('wd_varnish')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specs &amp; Sizes
+            </button>
+            <a href="https://wa.me/923325007200?text=Order%20WD%20Synthetic%20Clear%20Varnish" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
+              Order
+            </a>
+          </div>
+        </div>
+
+        <!-- WD 2: Polyurethane (PU) Varnish -->
+        <div class="bg-brand-surface border border-amber-200 hover:border-amber-400 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-hover group">
+          <div>
+            <div class="w-full h-60 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-amber-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-amber-800 text-white">Heavy Traffic Armor</span>
+              <img 
+                src="WD PU Varnish.jpeg" 
+                alt="WD PU Varnish" 
+                class="max-h-52 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'WD PU Varnish.jpg', () => renderCardPlaceholder(this, 'PU Varnish', 'Wood Dyer'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-brand-wood uppercase tracking-wider">High Contact Surfaces</span>
+              <span class="text-[11px] text-amber-800 font-semibold">Tough Resilience</span>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-wood transition font-wood">WD Polyurethane (PU) Varnish</h3>
+            <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+              Extremely durable cross-linking polyurethane formulation. Ideal for staircases, parquet floors, luxury dining tables, and outdoor woodwork.
+            </p>
+
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Resists heavy foot traffic &amp; scratch abrasions</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> High resistance against hot liquids, coffee &amp; alcohol</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Interior / exterior marine-level toughness</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openProductModal('wd_pu')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specs &amp; Sizes
+            </button>
+            <a href="https://wa.me/923325007200?text=Order%20WD%20PU%20Varnish" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
+              Order
+            </a>
+          </div>
+        </div>
+
+        <!-- WD 3: Wood Colour (Grain Dye/Stain) -->
+        <div class="bg-brand-surface border border-amber-200 hover:border-amber-400 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-hover group">
+          <div>
+            <div class="w-full h-60 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-amber-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Grain Enhancer</span>
+              <img 
+                src="WD Colour.jpg" 
+                alt="WD Colour" 
+                class="max-h-52 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'WD Colour.jpg', () => renderCardPlaceholder(this, 'Wood Colour', 'Wood Dyer'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-brand-wood uppercase tracking-wider">Deep Pore Dye</span>
+              <span class="text-[11px] text-amber-800 font-semibold">Superior Quality</span>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-wood transition font-wood">WD Wood Colour (Stain)</h3>
+            <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+              Penetrates deep into wood pores without masking fine wood grains. Available in walnut, teak, rosewood, oak, and mahogany hues.
+            </p>
+
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Penetrates deep without raising timber grain</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Excellent UV lightfastness (No color fading)</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Compatible under sealers, lacquers &amp; PU</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openProductModal('wd_colour')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specs &amp; Sizes
+            </button>
+            <a href="https://wa.me/923325007200?text=Order%20WD%20Wood%20Colour" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
+              Order
+            </a>
+          </div>
+        </div>
+
+        <!-- WD 4: Wood Sealer -->
+        <div class="bg-brand-surface border border-amber-200 hover:border-amber-400 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-hover group">
+          <div>
+            <div class="w-full h-60 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-amber-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Pore Lock Sealer</span>
+              <img 
+                src="WD Sealer.jpeg" 
+                alt="WD Sealer" 
+                class="max-h-52 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'WD Sealer.jpeg', () => renderCardPlaceholder(this, 'Wood Sealer', 'Wood Dyer'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-brand-wood uppercase tracking-wider">Foundation Base</span>
+              <span class="text-[11px] text-amber-800 font-semibold">Easy Sanding</span>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-wood transition font-wood">WD Wood Sealer</h3>
+            <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+              High-solids sanding sealer that locks porous fibers, prevents topcoat sinking, and powders cleanly upon sandpaper rubbing.
+            </p>
+
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Fills cellular timber voids seamlessly</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Fast drying (sandable within 45 to 60 mins)</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> High build thickness reduces varnish coats needed</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openProductModal('wd_sealer')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specs &amp; Sizes
+            </button>
+            <a href="https://wa.me/923325007200?text=Order%20WD%20Wood%20Sealer" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
+              Order
+            </a>
+          </div>
+        </div>
+
+        <!-- WD 5: Wood Lacquer -->
+        <div class="bg-brand-surface border border-amber-200 hover:border-amber-400 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-hover group">
+          <div>
+            <div class="w-full h-60 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-amber-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200">Cabinet Topcoat</span>
+              <img 
+                src="WD Lacquer.jpeg" 
+                alt="WD Lacquer" 
+                class="max-h-52 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'WD Lacquer.jpeg', () => renderCardPlaceholder(this, 'Wood Lacquer', 'Wood Dyer'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-brand-wood uppercase tracking-wider">Silky Hand Feel</span>
+              <span class="text-[11px] text-amber-800 font-semibold">Optical Clarity</span>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-wood transition font-wood">WD Wood Lacquer</h3>
+            <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+              Fast-drying furniture topcoat delivering high clarity without cloudy haze. Favored by artisan carpenters for wardrobes and cabinets.
+            </p>
+
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Pure optical clarity with zero yellow discoloration</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Silky smooth touch for interior furniture</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Dries dust-free rapidly in spray workshops</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openProductModal('wd_lacquer')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specs &amp; Sizes
+            </button>
+            <a href="https://wa.me/923325007200?text=Order%20WD%20Wood%20Lacquer" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
+              Order
+            </a>
+          </div>
+        </div>
+
+        <!-- WD 6: Wood Thinner (Virgin Solvent) -->
+        <div class="bg-brand-surface border border-amber-200 hover:border-amber-400 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-hover group">
+          <div>
+            <div class="w-full h-60 product-stage rounded-2xl p-3 flex items-center justify-center relative overflow-hidden mb-4 border border-amber-100">
+              <span class="absolute z-10 top-3 left-3 text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-red-100 text-red-900 border border-red-200">Artisan Solvent</span>
+              <img 
+                src="WD Thinner.jpeg" 
+                alt="WD Thinner" 
+                class="max-h-52 w-auto object-contain product-img drop-shadow-md"
+                onerror="trySubfolderImage(this, 'WD Thinner.jpeg', () => renderCardPlaceholder(this, 'Wood Thinner', 'Virgin Solvent'))"
+              />
+            </div>
+
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-bold text-brand-wood uppercase tracking-wider">Application Diluent</span>
+              <span class="text-[11px] text-amber-800 font-semibold">100% Virgin Grade</span>
+            </div>
+            <h3 class="text-xl font-bold text-brand-dark group-hover:text-brand-wood transition font-wood">WD Wood Thinner</h3>
+            <p class="text-xs text-brand-muted mt-2 leading-relaxed">
+              High-purity virgin solvent formulated for Wood Dyer varnishes, sealers, and lacquers. Prevents humidity blushing during monsoon.
+            </p>
+
+            <ul class="mt-4 space-y-1.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Pure virgin solvent grade without recycled debris</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Prevents humidity blushing and orange-peel ripples</li>
+              <li class="flex items-center gap-2"><i class="ph ph-check-circle text-brand-wood"></i> Essential for spray guns, cleaning, and flow tuning</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
+            <button onclick="openProductModal('wd_thinner')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
+              Specs &amp; Sizes
+            </button>
+            <a href="https://wa.me/923325007200?text=Order%20WD%20Wood%20Thinner" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
+              Order
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Wood Dyer 4-Step Guide (Light Theme) -->
+      <div id="woodSystem" class="mt-16 bg-brand-surface border border-amber-200 rounded-3xl p-8 sm:p-12 shadow-card">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs uppercase font-extrabold text-brand-wood tracking-widest bg-amber-50 px-3 py-1 rounded-md border border-amber-200">Artisan Protocol</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-brand-dark font-serif mt-2">The Wood Dyer™ 4-Step Application Routine</h3>
+          <p class="text-xs sm:text-sm text-brand-muted mt-2">Professional carpentry instructions for unmatched sheen and protection.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="bg-brand-surfaceSoft p-6 rounded-2xl border border-brand-border">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 text-brand-wood flex items-center justify-center font-bold text-sm mb-3">01</span>
+            <h4 class="text-brand-dark font-bold text-sm">Sand &amp; Clean</h4>
+            <p class="text-xs text-brand-muted mt-2">Sand along wood grain with 120-grit, ending with 240-grit. Remove fine sawdust using WD Wood Thinner.</p>
+          </div>
+          <div class="bg-brand-surfaceSoft p-6 rounded-2xl border border-brand-border">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 text-brand-wood flex items-center justify-center font-bold text-sm mb-3">02</span>
+            <h4 class="text-brand-dark font-bold text-sm">Lock Pores</h4>
+            <p class="text-xs text-brand-muted mt-2">Apply 1-2 coats of <strong>WD Wood Sealer</strong> diluted 15% with WD Thinner. Dry 1 hour, sand with 320-grit paper.</p>
+          </div>
+          <div class="bg-brand-surfaceSoft p-6 rounded-2xl border border-brand-border">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 text-brand-wood flex items-center justify-center font-bold text-sm mb-3">03</span>
+            <h4 class="text-brand-dark font-bold text-sm">Dye &amp; Tone</h4>
+            <p class="text-xs text-brand-muted mt-2">Wipe or spray <strong>WD Wood Colour</strong>. Allow 3 to 5 minutes for cellular penetration, then wipe excess with a clean rag.</p>
+          </div>
+          <div class="bg-brand-surfaceSoft p-6 rounded-2xl border border-brand-border">
+            <span class="w-8 h-8 rounded-lg bg-amber-100 text-brand-wood flex items-center justify-center font-bold text-sm mb-3">04</span>
+            <h4 class="text-brand-dark font-bold text-sm">Shield Topcoat</h4>
+            <p class="text-xs text-brand-muted mt-2">Apply 2 final coats of <strong>WD Clear Varnish</strong>, <strong>WD PU Varnish</strong> (floors/tables), or <strong>WD Lacquer</strong>.</p>
+          </div>
+        </div>
+      </div>
+
     </section>
 
-    <section id="wood-dyer" class="section wood-dyer-brand">
-        <div class="section-title"><h2>Wood Dyer Brand</h2></div>
-        <div class="product-grid">
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>NC Sealer</h3>
-            <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
+
+    <!-- ==================================================== -->
+    <!-- VIEW 4: PAINT & WOOD CALCULATOR TOOL                 -->
+    <!-- ==================================================== -->
+    <section id="pane-calculator" class="view-pane hidden">
+      <div class="max-w-4xl mx-auto">
+        
+        <div class="text-center mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <i class="ph ph-calculator"></i> Precise Quantity Estimator
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-brand-dark">Paint &amp; Wood Finish Calculator</h2>
+          <p class="text-brand-muted text-xs sm:text-sm mt-1 max-w-lg mx-auto">
+            Input dimensions to calculate exact liters, gallons, and recommended bucket packaging for your home or woodcraft project.
+          </p>
         </div>
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>NC Lacquer</h3>
-            <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
+
+        <!-- Mode Toggle -->
+        <div class="flex justify-center mb-8">
+          <div class="bg-brand-surface p-1.5 rounded-2xl border border-brand-border flex items-center gap-2 shadow-subtle">
+            <button id="btnCalcWall" onclick="switchCalc('wall')" class="px-6 py-2.5 rounded-xl text-xs font-bold transition bg-brand-primary text-white shadow-sm">
+              <i class="ph ph-paint-roller mr-1.5"></i> Wall &amp; Ceiling Paint
+            </button>
+            <button id="btnCalcWood" onclick="switchCalc('wood')" class="px-6 py-2.5 rounded-xl text-xs font-bold transition text-brand-muted hover:text-brand-dark">
+              <i class="ph ph-tree mr-1.5"></i> Wood Dyer Finishes
+            </button>
+          </div>
         </div>
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>NC Primer</h3>
-            <img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
-        </div>
-            <div class="product-card" style="background: rgba(255,255,255,0.1); color: #f3e5ab; border-top-color: #f3e5ab;"><h3>Wood Colour</h3><img src="./abc.jpg" alt="Weather Shield" style="max-width:100%; height:auto; margin-bottom:10px;">
+
+        <!-- Wall Form (Light UI) -->
+        <div id="boxWallCalc" class="bg-brand-surface border border-brand-border rounded-3xl p-6 sm:p-10 shadow-card">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h3 class="text-base font-bold text-brand-dark flex items-center gap-2">
+                <i class="ph ph-ruler text-brand-secondary"></i> Wall Dimensions
+              </h3>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Select Paint Coating</label>
+                <select id="wallProductSelect" onchange="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                  <option value="120">Ombré Luxury Emulsion (120 - 140 sq ft / L)</option>
+                  <option value="110">Ombré Weather Pro (100 - 120 sq ft / L)</option>
+                  <option value="115">Ombré Weather Shield (110 - 130 sq ft / L)</option>
+                  <option value="105">Ombré Super Emulsion (100 - 115 sq ft / L)</option>
+                  <option value="130">Ombré Matt Enamel (120 - 140 sq ft / L)</option>
+                  <option value="125">Ombré Synthetic Enamel (115 - 135 sq ft / L)</option>
+                  <option value="90">Ombré Wall Primer (80 - 100 sq ft / L)</option>
+                </select>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Length (ft)</label>
+                  <input type="number" id="inpWallLength" value="16" min="1" oninput="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Width (ft)</label>
+                  <input type="number" id="inpWallWidth" value="14" min="1" oninput="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Height (ft)</label>
+                  <input type="number" id="inpWallHeight" value="10" min="1" oninput="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Number of Coats</label>
+                  <select id="inpWallCoats" onchange="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                    <option value="2" selected>2 Coats (Recommended)</option>
+                    <option value="1">1 Refresh Coat</option>
+                    <option value="3">3 Coats (Porous Plaster)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Doors (21 sq ft)</label>
+                  <input type="number" id="inpWallDoors" value="2" min="0" oninput="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-700 mb-1">Windows (15 sq ft)</label>
+                  <input type="number" id="inpWallWindows" value="2" min="0" oninput="calculateWallPaint()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 pt-1">
+                <input type="checkbox" id="chkIncludeCeiling" onchange="calculateWallPaint()" checked class="w-4 h-4 rounded text-brand-primary border-slate-300 focus:ring-0">
+                <label for="chkIncludeCeiling" class="text-xs text-slate-700">Include ceiling surface area</label>
+              </div>
             </div>
+
+            <!-- Wall Output Display -->
+            <div class="bg-brand-surfaceSoft border border-brand-border rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-bold tracking-wider uppercase text-brand-secondary">Total Paint Required</span>
+                <div class="mt-3 flex items-baseline gap-2">
+                  <span id="outWallLiters" class="text-5xl font-extrabold text-brand-dark">0.0</span>
+                  <span class="text-lg text-brand-muted font-medium">Liters</span>
+                </div>
+                <p class="text-xs text-slate-600 mt-1">
+                  Approx. <span id="outWallGallons" class="text-brand-gold font-bold">0.0</span> Gallons
+                </p>
+
+                <div class="mt-6 pt-4 border-t border-brand-border space-y-2 text-xs text-slate-700">
+                  <div class="flex justify-between">
+                    <span>Net Wall Surface:</span>
+                    <span id="outWallArea" class="font-bold text-brand-dark">0 sq ft</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Suggested Buckets:</span>
+                    <span id="outWallPacks" class="font-bold text-emerald-700">0 Drums</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-brand-border">
+                <button onclick="shareWallWhatsApp()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                  <i class="ph ph-whatsapp-logo text-base"></i>
+                  <span>WhatsApp Estimate (+92 332 5007200)</span>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Wood Dyer Calculation Panel -->
+        <div id="boxWoodCalc" class="bg-brand-surface border border-amber-200 rounded-3xl p-6 sm:p-10 shadow-card hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h3 class="text-base font-bold text-brand-wood flex items-center gap-2">
+                <i class="ph ph-tree text-brand-wood"></i> Timber Surface Details
+              </h3>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Select Wood Dyer Topcoat</label>
+                <select id="woodProductSelect" onchange="calculateWoodKit()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-wood">
+                  <option value="110">WD Polyurethane (PU) Varnish (High Abrasion)</option>
+                  <option value="120">WD Synthetic Clear Varnish (Stain &amp; Weatherproof)</option>
+                  <option value="130">WD Wood Lacquer (Silky Furniture Topcoat)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Quick Project Preset</label>
+                <select id="woodPresetSelect" onchange="applyWoodPreset()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-wood">
+                  <option value="custom">Custom Area (Specify Below)</option>
+                  <option value="doors">3 Exterior Solid Wood Doors (~130 sq ft)</option>
+                  <option value="dining">6-Seater Dining Table + 6 Chairs (~95 sq ft)</option>
+                  <option value="stairs">Wooden Staircase 15 Steps + Railing (~160 sq ft)</option>
+                  <option value="floor">Hardwood Flooring Room (15x15 ft = 225 sq ft)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Surface Area (sq ft)</label>
+                <input type="number" id="inpWoodArea" value="120" min="1" oninput="calculateWoodKit()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-wood">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Finishing Coats</label>
+                <select id="inpWoodCoats" onchange="calculateWoodKit()" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-wood">
+                  <option value="2" selected>2 Topcoats + 1 Sealer Coat</option>
+                  <option value="3">3 Topcoats (Heavy Outdoor / Floors)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Wood Output Breakdown -->
+            <div class="bg-amber-50/60 border border-amber-200 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-bold tracking-wider uppercase text-brand-wood">Complete Wood Dyer Package</span>
+
+                <div class="mt-4 space-y-2.5">
+                  <div class="bg-white p-3 rounded-xl border border-amber-200 flex justify-between items-center text-xs shadow-subtle">
+                    <div>
+                      <p class="font-bold text-brand-dark">WD Wood Sealer</p>
+                      <p class="text-[10px] text-brand-muted">Pore lock base</p>
+                    </div>
+                    <span id="outWoodSealer" class="font-extrabold text-brand-wood">0.0 L</span>
+                  </div>
+
+                  <div class="bg-white p-3 rounded-xl border border-amber-200 flex justify-between items-center text-xs shadow-subtle">
+                    <div>
+                      <p class="font-bold text-brand-dark">WD Wood Colour (Stain)</p>
+                      <p class="text-[10px] text-brand-muted">Grain dye tint</p>
+                    </div>
+                    <span id="outWoodStain" class="font-extrabold text-brand-wood">0.0 L</span>
+                  </div>
+
+                  <div class="bg-white p-3 rounded-xl border border-amber-200 flex justify-between items-center text-xs shadow-subtle">
+                    <div>
+                      <p class="font-bold text-brand-dark">Selected Topcoat Varnish</p>
+                      <p class="text-[10px] text-brand-muted">Protective shield</p>
+                    </div>
+                    <span id="outWoodTopcoat" class="font-extrabold text-brand-wood">0.0 L</span>
+                  </div>
+
+                  <div class="bg-white p-3 rounded-xl border border-amber-200 flex justify-between items-center text-xs shadow-subtle">
+                    <div>
+                      <p class="font-bold text-brand-dark">WD Wood Thinner</p>
+                      <p class="text-[10px] text-brand-muted">Virgin reducer</p>
+                    </div>
+                    <span id="outWoodThinner" class="font-extrabold text-brand-wood">0.0 L</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-4 border-t border-amber-200">
+                <button onclick="shareWoodWhatsApp()" class="w-full py-3 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm">
+                  <i class="ph ph-whatsapp-logo text-base"></i>
+                  <span>WhatsApp Wood Estimate (+92 332 5007200)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="section-title"><h2>Contact Us</h2></div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <div class="contact-item"><strong>Primary:</strong> Zafar Abbas</div>
-                <div class="contact-item"><strong>Phone:</strong> <a href="tel:03349739730">0334-9739730</a></div>
-                <div class="contact-item"><strong>Email:</strong> <a href="mailto:szakazmi@gmail.com">szakazmi@gmail.com</a></div>
-                <div class="contact-item"><small>All products available in all colors.</small></div>
-            </div>
+
+    <!-- ==================================================== -->
+    <!-- VIEW 5: DEALERSHIP & DISTRIBUTION PORTAL             -->
+    <!-- ==================================================== -->
+    <section id="pane-dealership" class="view-pane hidden">
+      <div class="max-w-4xl mx-auto space-y-10">
+        
+        <div class="text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-secondary bg-blue-50 px-3 py-1 rounded-md border border-blue-100">Retailers &amp; Hardware Stores</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-brand-dark mt-2">Become an Authorized Ombré Dealer</h2>
+          <p class="text-brand-muted text-xs sm:text-sm mt-2 max-w-xl mx-auto">
+            Partner with Ombré Paints and Wood Dyer. Expand your showroom with 100% acrylic exterior paints, silky emulsions, automated computerized tinting, and high-margin wood solutions.
+          </p>
         </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl text-center shadow-card">
+            <i class="ph ph-percent text-3xl text-brand-gold mb-2"></i>
+            <h3 class="text-sm font-bold text-brand-dark">Distributor Margins</h3>
+            <p class="text-xs text-brand-muted mt-1">Exceptional retail margins and quarterly incentive bonuses for paint merchants.</p>
+          </div>
+          <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl text-center shadow-card">
+            <i class="ph ph-paint-roller text-3xl text-brand-secondary mb-2"></i>
+            <h3 class="text-sm font-bold text-brand-dark">Tinting Machine Support</h3>
+            <p class="text-xs text-brand-muted mt-1">Computerized tinting dispensers installed in qualified partner showrooms.</p>
+          </div>
+          <div class="bg-brand-surface border border-brand-border p-6 rounded-2xl text-center shadow-card">
+            <i class="ph ph-truck text-3xl text-emerald-600 mb-2"></i>
+            <h3 class="text-sm font-bold text-brand-dark">48-Hour Order Dispatch</h3>
+            <p class="text-xs text-brand-muted mt-1">Dependable supply chains ensuring your store never runs out of stock.</p>
+          </div>
+        </div>
+
+        <!-- Dealership Application Form -->
+        <div class="bg-brand-surface border border-brand-border rounded-3xl p-8 sm:p-10 shadow-card">
+          <h3 class="text-xl font-bold font-serif text-brand-dark mb-1">Dealership Application</h3>
+          <p class="text-xs text-brand-muted mb-6">Submitting connects you directly to our sales administration on WhatsApp (+92 332 5007200).</p>
+
+          <form onsubmit="submitDealerForm(event)" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Store / Business Name *</label>
+                <input type="text" id="inpShopName" required placeholder="e.g. Rawal Paint Centre" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Owner / Manager Name *</label>
+                <input type="text" id="inpOwnerName" required placeholder="e.g. Muhammad Asif" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Phone / WhatsApp Number *</label>
+                <input type="tel" id="inpDealerPhone" required placeholder="+92 300 0000000" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">City / Region *</label>
+                <input type="text" id="inpDealerCity" required placeholder="e.g. Rawalpindi / Islamabad" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-slate-700 mb-1">Product Lines Interested In</label>
+              <select id="inpDealerInterest" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+                <option value="Both Ombré Architectural & Wood Dyer">Both Ombré Paints &amp; Wood Dyer Range</option>
+                <option value="Only Ombré Architectural">Ombré Architectural Paints Only</option>
+                <option value="Only Wood Dyer Range">Wood Dyer Timber Solutions Only</option>
+                <option value="Construction & Project Supply">Bulk Construction Project Supply</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-3.5 bg-brand-primary hover:bg-brand-secondary text-white font-extrabold rounded-xl text-xs uppercase tracking-wider transition shadow-sm">
+              Submit &amp; Open WhatsApp Registration (+92 332 5007200)
+            </button>
+          </form>
+        </div>
+
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Ombre Paints.</p>
-    </footer>
 
-    <script>
-        function toggleDarkMode() {
-            const body = document.body;
-            const btn = document.getElementById('dark-mode-toggle');
-            const icon = document.getElementById('mode-icon');
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                btn.innerHTML = '<span id="mode-icon">☀️</span> Light Mode';
-            } else {
-                btn.innerHTML = '<span id="mode-icon">🌙</span> Dark Mode';
-            }
+    <!-- ==================================================== -->
+    <!-- VIEW 6: ABOUT US & COMMITMENT TO QUALITY             -->
+    <!-- ==================================================== -->
+    <section id="pane-about" class="view-pane hidden">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-secondary bg-blue-50 px-3 py-1 rounded-md border border-blue-100">Heritage &amp; Quality</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold font-serif text-brand-dark mt-2">Ombré Paints &bull; Sequence of Colors</h2>
+          <p class="text-brand-muted text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+            Engineered to bridge architectural durability with rich artistic hues. Made with 100% acrylic polymeric binders and fine lightfast pigments.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-4 text-sm text-slate-600 leading-relaxed">
+            <h3 class="text-xl font-bold font-serif text-brand-dark">100% Pure Acrylic Formulation</h3>
+            <p>
+              Unlike cheap chalk fillers that deteriorate and wash away during monsoon seasons, Ombré Paints uses pure acrylic resins. This gives our films high flexibility, expanding and contracting with wall temperature swings to prevent micro-cracks.
+            </p>
+            <p>
+              Under our dedicated division, <strong class="text-brand-wood font-semibold">Wood Dyer</strong>, we engineered specialty synthetic and polyurethane wood solutions. Our clear varnishes, sanding sealers, and penetrating dyes allow timber to breathe while shielding sensitive cellulose fibers from destructive moisture and rot.
+            </p>
+          </div>
+
+          <div class="bg-brand-surface p-6 rounded-3xl border border-brand-border space-y-4 shadow-card">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-amber-50 text-brand-gold text-2xl border border-amber-200">
+                <i class="ph ph-shield-check"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-brand-dark text-base">Weather Pro Shield Technology</h4>
+                <p class="text-xs text-brand-muted mt-1">Specialized cross-linking pigments prevent surface fungal infestation and efflorescence salt bleed.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-emerald-50 text-emerald-600 text-2xl border border-emerald-200">
+                <i class="ph ph-leaf"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-brand-dark text-base">Eco-Friendly &amp; Low VOC</h4>
+                <p class="text-xs text-brand-muted mt-1">Natural non-toxic raw materials compliant with green building environmental safety standards.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-xl bg-blue-50 text-brand-secondary text-2xl border border-blue-200">
+                <i class="ph ph-sparkle"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-brand-dark text-base">Wood Dyer Craftsmanship</h4>
+                <p class="text-xs text-brand-muted mt-1">Formulated in synergy with master carpenters for perfect grain clarity, smooth leveling, and zero blushing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==================================================== -->
+    <!-- VIEW 7: CONTACT US & STOCKIST HELPLINE               -->
+    <!-- ==================================================== -->
+    <section id="pane-contact" class="view-pane hidden">
+      <div class="max-w-4xl mx-auto space-y-10">
+        
+        <div class="text-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-brand-secondary bg-blue-50 px-3 py-1 rounded-md border border-blue-100">Official Helpdesk</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-serif text-brand-dark mt-2">Contact Ombré Paints &amp; Wood Dyer</h2>
+          <p class="text-brand-muted text-xs sm:text-sm mt-2">
+            Reach out directly for shade cards, orders, project estimations, or retailer deliveries.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Contact Methods -->
+          <div class="space-y-4">
+            
+            <a href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints" target="_blank" rel="noopener" class="flex items-center gap-4 p-5 rounded-2xl bg-emerald-50 border border-emerald-200 hover:bg-emerald-100/70 transition shadow-subtle">
+              <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-2xl">
+                <i class="ph ph-whatsapp-logo"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-emerald-800 uppercase tracking-wider">WhatsApp Helpline</p>
+                <p class="text-base font-extrabold text-brand-dark tracking-wide">+92 332 5007200</p>
+                <p class="text-[11px] text-emerald-700 font-medium">Available Mon - Sat for fast quotes</p>
+              </div>
+            </a>
+
+            <a href="tel:+923325007200" class="flex items-center gap-4 p-5 rounded-2xl bg-brand-surface border border-brand-border hover:border-slate-400 transition shadow-subtle">
+              <div class="w-12 h-12 rounded-xl bg-brand-primary text-white flex items-center justify-center text-2xl">
+                <i class="ph ph-phone-call"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Direct Phone</p>
+                <p class="text-base font-extrabold text-brand-dark tracking-wide">+92 332 5007200</p>
+                <p class="text-[11px] text-brand-muted">Technical consultation</p>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 p-5 rounded-2xl bg-brand-surface border border-brand-border shadow-subtle">
+              <div class="w-12 h-12 rounded-xl bg-brand-wood text-white flex items-center justify-center text-2xl">
+                <i class="ph ph-map-pin"></i>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-brand-muted uppercase tracking-wider">Headquarters &amp; Distribution</p>
+                <p class="text-sm font-bold text-brand-dark">Rawalpindi / Islamabad Region</p>
+                <p class="text-[11px] text-brand-muted">Pakistan &bull; Nationwide Logistics</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Form -->
+          <div class="bg-brand-surface border border-brand-border rounded-3xl p-6 sm:p-8 shadow-card">
+            <h3 class="text-lg font-bold font-serif text-brand-dark mb-1">Send a Message</h3>
+            <p class="text-xs text-brand-muted mb-4">Your message will automatically redirect to our official WhatsApp.</p>
+
+            <form onsubmit="submitContactForm(event)" class="space-y-3.5">
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Your Full Name</label>
+                <input type="text" id="inpContactName" required placeholder="e.g. Asad" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">City</label>
+                <input type="text" id="inpContactCity" required placeholder="e.g. Islamabad" class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary">
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-700 mb-1">Message / Product Required</label>
+                <textarea id="inpContactMsg" rows="3" required placeholder="Tell us which paints or wood finishes you require..." class="w-full bg-brand-surfaceSoft border border-brand-border rounded-xl px-4 py-2.5 text-xs text-brand-dark focus:outline-none focus:border-brand-primary"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition flex items-center justify-center gap-2 shadow-sm">
+                <i class="ph ph-whatsapp-logo text-base"></i>
+                <span>Send to WhatsApp (+92 332 5007200)</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================== -->
+  <!-- MODAL: PRODUCT SPECIFICATIONS & TECHNICAL DATA           -->
+  <!-- ======================================================== -->
+  <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
+    <div class="relative w-full max-w-xl bg-brand-surface border border-brand-border rounded-3xl p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+      
+      <button onclick="closeProductModal()" class="absolute top-5 right-5 text-slate-400 hover:text-brand-dark p-2 rounded-xl bg-slate-100 transition" aria-label="Close modal">
+        <i class="ph ph-x text-lg"></i>
+      </button>
+
+      <div id="productModalContent">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- PERSISTENT FLOATING WHATSAPP CTA (+923325007200)         -->
+  <!-- ======================================================== -->
+  <div class="fixed bottom-6 right-6 z-50">
+    <a 
+      href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints%2C%20I%20have%20an%20inquiry%20regarding%20products." 
+      target="_blank" 
+      rel="noopener"
+      class="flex items-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white pl-4 pr-5 py-3 rounded-full shadow-hover transition transform hover:scale-105 active:scale-95 border border-emerald-400/30"
+      aria-label="Direct WhatsApp Chat"
+    >
+      <i class="ph ph-whatsapp-logo text-2xl animate-bounce"></i>
+      <div class="text-left">
+        <p class="text-[10px] uppercase font-bold text-emerald-100 leading-none">WhatsApp</p>
+        <p class="text-xs font-extrabold leading-tight tracking-wide">+92 332 5007200</p>
+      </div>
+    </a>
+  </div>
+
+  <!-- FOOTER (CRISP LIGHT AESTHETIC) -->
+  <footer class="bg-brand-surface border-t border-brand-border text-slate-600 py-12 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <div class="space-y-3">
+          <p class="font-serif text-2xl font-bold text-brand-dark">Ombré Paints</p>
+          <p class="text-[11px] text-brand-gold italic font-serif">Sequence of Colors</p>
+          <p class="text-slate-500 leading-relaxed text-[11px]">
+            Master architectural coatings &bull; 100% Pure Acrylic Formulations &bull; Wood Dyer Specialized Timber Finishing division.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-brand-dark font-bold mb-3 uppercase tracking-wider text-[11px]">Ombré Paints</h4>
+          <ul class="space-y-1.5 text-slate-500">
+            <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Weather Pro Exterior</button></li>
+            <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Weather Shield</button></li>
+            <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Luxury Emulsion</button></li>
+            <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Super Emulsion</button></li>
+            <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Matt &amp; Synthetic Enamels</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-brand-dark font-bold mb-3 uppercase tracking-wider text-[11px]">Wood Dyer Division</h4>
+          <ul class="space-y-1.5 text-slate-500">
+            <li><button onclick="showTab('wooddyer')" class="hover:text-brand-dark transition">Synthetic Clear Varnish</button></li>
+            <li><button onclick="showTab('wooddyer')" class="hover:text-brand-dark transition">Polyurethane (PU) Varnish</button></li>
+            <li><button onclick="showTab('wooddyer')" class="hover:text-brand-dark transition">Wood Colour (Stains)</button></li>
+            <li><button onclick="showTab('wooddyer')" class="hover:text-brand-dark transition">Wood Sealer &amp; Lacquer</button></li>
+            <li><button onclick="showTab('wooddyer')" class="hover:text-brand-dark transition">Wood Thinner</button></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-brand-dark font-bold mb-3 uppercase tracking-wider text-[11px]">Helpline &amp; Orders</h4>
+          <p class="text-brand-dark font-bold text-sm mb-1">+92 332 5007200</p>
+          <p class="text-slate-500 text-[11px] mb-3">WhatsApp orders &amp; dealer inquiries accepted daily.</p>
+          <a href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold">
+            <i class="ph ph-whatsapp-logo"></i> Message WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-slate-100 text-center text-slate-400 text-[11px]">
+        &copy; 2026 Ombré Paints &amp; Wood Dyer. All rights reserved. Beauty That Protects.
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT LOGIC & VS CODE IMAGE RESOLVER ENGINE         -->
+  <!-- ======================================================== -->
+  <script>
+    // --------------------------------------------------------
+    // VS CODE IMAGE AUTO-RESOLVER:
+    // Checks if the image is in the same folder or in /images/
+    // --------------------------------------------------------
+    function trySubfolderImage(imgElement, filename, fallbackCallback) {
+      if (!imgElement.dataset.retried) {
+        imgElement.dataset.retried = "true";
+        imgElement.src = "images/" + filename;
+      } else {
+        if (typeof fallbackCallback === 'function') {
+          fallbackCallback();
         }
-    </script>
+      }
+    }
+
+    function renderCardPlaceholder(imgElement, title, category) {
+      imgElement.classList.add('hidden');
+      const parent = imgElement.parentElement;
+      const placeholder = document.createElement('div');
+      placeholder.className = 'w-full h-full flex flex-col items-center justify-center p-3 text-center bg-white rounded-xl border border-dashed border-slate-300';
+      placeholder.innerHTML = `
+        <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 mb-2">
+          <i class="ph ph-image text-xl"></i>
+        </div>
+        <p class="text-xs font-bold text-slate-800 leading-tight">${title}</p>
+        <p class="text-[10px] text-slate-400 mt-0.5">${category}</p>
+      `;
+      parent.appendChild(placeholder);
+    }
+
+    // Modal Technical Data Catalog
+    const productCatalog = {
+      weatherpro: {
+        title: "Ombré Weather Pro",
+        tagline: "Beauty That Protects &bull; Long Lasting Facade Shield",
+        category: "Exterior Walls",
+        desc: "Engineered specifically for extreme sun, heavy monsoons, and ambient smog. Formulated with 100% acrylic binders and elastomeric flexibility to bridge microscopic hairline wall fissures.",
+        specs: {
+          "Resin Base": "100% Pure Acrylic Copolymer",
+          "Coverage": "100 - 120 sq ft per liter (2 coats)",
+          "Drying Time": "Touch Dry: 30 mins | Recoat: 3-4 hours",
+          "Thinner Ratio": "Potable Water (10% - 15%)",
+          "Packaging Available": "1 Liter Can, 4 Liters Gallon, 16 Liters Drum"
+        }
+      },
+      weathershield: {
+        title: "Ombré Weather Shield",
+        tagline: "Smooth Finish Walls &bull; 100% Acrylic Based Eco-Friendly",
+        category: "Exterior Walls",
+        desc: "Smooth finish exterior wall coating offering complete weather resistance, anti-algal defenses, and rich durability against tropical monsoons.",
+        specs: {
+          "Resin Base": "100% Acrylic Based",
+          "Coverage": "110 - 130 sq ft per liter",
+          "Drying Time": "Touch Dry: 25 mins | Recoat: 3 hours",
+          "Thinner Ratio": "Clean Water (15% - 20%)",
+          "Packaging Available": "1 Liter, 4 Liters Gallon, 16 Liters Drum"
+        }
+      },
+      luxury: {
+        title: "Ombré Luxury Emulsion",
+        tagline: "Extra Coverage &bull; Hairline Crack Resistant",
+        category: "Interior Walls",
+        desc: "Flagship interior wall finish with rich opacity, silk finish, and anti-bacterial formulation. Hairline crack bridging allows flawless results on uneven surfaces.",
+        specs: {
+          "Finish": "Silky Smooth Soft Sheen",
+          "Coverage": "120 - 140 sq ft per liter",
+          "Drying Time": "Touch Dry: 20 mins | Recoat: 2-3 hours",
+          "Washability": "Fully Washable Scrub Resistant",
+          "Packaging Available": "1 Liter, 4 Liters Gallon, 16 Liters Drum"
+        }
+      },
+      superemulsion: {
+        title: "Ombré Super Emulsion",
+        tagline: "Smooth Finish Walls &bull; High Opacity & Good Flow",
+        category: "Interior Walls & Ceilings",
+        desc: "The contractor-favored interior emulsion providing velvety matte coverage, quick drying times, and uniform leveling on interior plaster.",
+        specs: {
+          "Finish": "Classic Matte",
+          "Coverage": "100 - 115 sq ft per liter",
+          "Drying Time": "Touch Dry: 20 mins | Recoat: 2 hours",
+          "Eco Features": "100% Eco-Friendly Natural Components",
+          "Packaging Available": "1 Liter, 4 Liters Gallon, 16 Liters Drum"
+        }
+      },
+      mattenamel: {
+        title: "Ombré Matt Enamel",
+        tagline: "All-in-One Acrylic Sealer / Undercoat &bull; Extra Coverage",
+        category: "Kitchens, Bathrooms & Trims",
+        desc: "Impervious to steam, condensation, and cooking grease. Provides anti-mould protection for bathrooms, kitchen walls, doors, and trims.",
+        specs: {
+          "Finish": "Rich Non-Reflective Matt",
+          "Coverage": "120 - 140 sq ft per liter",
+          "Resistance": "Anti-Mould, Steam & Dirt Resistant",
+          "Washability": "100% Washable",
+          "Packaging Available": "0.91 Liter (Quarter), 3.64 Liters (Gallon)"
+        }
+      },
+      synthetictin: {
+        title: "Ombré Synthetic Enamel",
+        tagline: "Extra Coverage &bull; Mirror High Gloss",
+        category: "Metal & Wood Surfaces",
+        desc: "Heavy-duty gloss enamel for exterior gates, doors, windows, and metal structures. Formulated with UV filters to prevent discoloration.",
+        specs: {
+          "Finish": "High Reflective Gloss",
+          "Coverage": "115 - 135 sq ft per liter",
+          "Application": "Brush, Roller, or Spray Gun",
+          "Thinner Ratio": "Mineral Turpentine (10%)",
+          "Packaging Available": "0.91 Liter (Quarter), 3.64 Liters (Gallon)"
+        }
+      },
+      primer: {
+        title: "Ombré Wall Primer",
+        tagline: "100% Acrylic Based &bull; Deep Bonding Foundation",
+        category: "Preparation",
+        desc: "Essential first step on bare cement plaster and concrete. Equalizes surface suction and neutralizes free alkalinity to protect topcoats.",
+        specs: {
+          "Composition": "100% Acrylic Base",
+          "Coverage": "85 - 100 sq ft per liter",
+          "Drying Time": "Touch: 15 mins | Recoat: 2 hours",
+          "Packaging Available": "4 Liters Gallon, 16 Liters Drum"
+        }
+      },
+      putty: {
+        title: "Ombré Wall Putty",
+        tagline: "100% Acrylic Based &bull; Smooth Leveling & Void Filling",
+        category: "Preparation",
+        desc: "Ready-to-use smooth acrylic filler that glides easily with a putty knife. Fills voids, pinholes, and cracks with effortless sanding.",
+        specs: {
+          "Form": "Smooth Ready-to-Apply Paste",
+          "Coverage": "20 - 25 sq ft per kg",
+          "Sanding Time": "Sandable in 4 to 6 hours",
+          "Packaging Available": "5kg Bucket, 20kg Bucket"
+        }
+      },
+      wd_varnish: {
+        title: "WD Synthetic Clear Varnish",
+        tagline: "Stains & Weatherproofs &bull; Crack & Peel Resistant",
+        category: "Wood Dyer Range",
+        desc: "Synthetic clear resin formula that protects wood from rain and sun while accentuating grain warmth. Contains 2x UV absorbers.",
+        specs: {
+          "Finish": "Clear Amber Gloss",
+          "Coverage": "110 - 130 sq ft per liter",
+          "Thinner": "WD Wood Thinner (10% - 15%)",
+          "Packaging Available": "1 Liter Can, 4 Liters Tin"
+        }
+      },
+      wd_pu: {
+        title: "WD Polyurethane (PU) Varnish",
+        tagline: "Extreme Durability Against Harsh Weather & Heavy Traffic",
+        category: "Wood Dyer Range",
+        desc: "The ultimate armor for stairs, parquet flooring, luxury dining tables, and exterior doors. Withstands scratch scuffs and boiling liquids.",
+        specs: {
+          "Resin": "Pure Polyurethane Polymer",
+          "Coverage": "100 - 120 sq ft per liter",
+          "Resistance": "Boiling liquids, scratch scuffs, UV rays",
+          "Packaging Available": "1 Liter Can, 4 Liters Tin"
+        }
+      },
+      wd_colour: {
+        title: "WD Wood Colour (Stain)",
+        tagline: "Superior Quality &bull; Rich Natural Grain Dye",
+        category: "Wood Dyer Range",
+        desc: "Deep penetrating spirit stain available in teak, walnut, rosewood, oak, and mahogany. Highlights cellular pores without raising the grain.",
+        specs: {
+          "Type": "Micro-Pigment Penetrating Dye",
+          "Coverage": "130 - 150 sq ft per liter",
+          "Drying": "Touch: 10 mins | Recoat: 30 mins",
+          "Packaging Available": "0.5 Liter, 1 Liter, 4 Liters Tin"
+        }
+      },
+      wd_sealer: {
+        title: "WD Wood Sealer",
+        tagline: "Superior Quality &bull; Pore Lock Foundation",
+        category: "Wood Dyer Range",
+        desc: "High solids sanding sealer that coats raw wood fibers. Dries rapidly and powders cleanly when lightly sanded with 320-grit paper.",
+        specs: {
+          "Application": "Brush or Spray Gun",
+          "Coverage": "120 - 140 sq ft per liter",
+          "Sanding": "Ready to sand in 45-60 mins",
+          "Packaging Available": "1 Liter Can, 4 Liters Tin"
+        }
+      },
+      wd_lacquer: {
+        title: "WD Wood Lacquer",
+        tagline: "High Clarity Protective Topcoat &bull; Silky Touch",
+        category: "Wood Dyer Range",
+        desc: "Crafted for fine furniture and wardrobes. Clear topcoat with zero clouding or yellowing, delivering an artisan-grade smooth hand feel.",
+        specs: {
+          "Finish": "Silky Gloss / Semi-Gloss",
+          "Coverage": "120 - 140 sq ft per liter",
+          "Drying": "Dust-Free in 10 mins",
+          "Packaging Available": "1 Liter Can, 4 Liters Tin"
+        }
+      },
+      wd_thinner: {
+        title: "WD Wood Thinner",
+        tagline: "Superior Quality Solvent &bull; Virgin Reducer",
+        category: "Wood Dyer Range",
+        desc: "High-grade virgin solvent reducer for Wood Dyer sealers, lacquers, and varnishes. Prevents moisture blushing and orange-peel texture.",
+        specs: {
+          "Purity": "100% Virgin Hydrocarbon Blend",
+          "Usage": "Dilution & Cleaning Spray Equipment",
+          "Packaging Available": "1 Liter, 3 Liters Tin, Drum"
+        }
+      }
+    };
+
+    // Tab Switching
+    function showTab(tabName) {
+      document.querySelectorAll('.view-pane').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-brand-dark', 'bg-brand-surfaceSoft', 'shadow-subtle');
+        btn.classList.add('text-brand-muted');
+      });
+
+      const targetPane = document.getElementById('pane-' + tabName);
+      if (targetPane) {
+        targetPane.classList.remove('hidden');
+        window.scrollTo({ top: targetPane.offsetTop - 100, behavior: 'smooth' });
+      }
+
+      const activeBtn = document.querySelector(`.nav-btn[data-tab="${tabName}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('text-brand-dark', 'bg-brand-surfaceSoft', 'shadow-subtle');
+        activeBtn.classList.remove('text-brand-muted');
+      }
+    }
+
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('menuToggleIcon');
+      drawer.classList.toggle('hidden');
+      if (drawer.classList.contains('hidden')) {
+        icon.className = 'ph ph-list text-2xl';
+      } else {
+        icon.className = 'ph ph-x text-2xl';
+      }
+    }
+
+    // Ombre Filtering
+    function filterOmbre(cat) {
+      document.querySelectorAll('.ombre-filter-btn').forEach(btn => {
+        if (btn.getAttribute('data-filter') === cat) {
+          btn.className = 'ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-primary text-white shadow-sm';
+        } else {
+          btn.className = 'ombre-filter-btn px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-surfaceSoft text-slate-600 hover:text-brand-dark';
+        }
+      });
+
+      document.querySelectorAll('.ombre-item-card').forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Modal Handling
+    function openProductModal(key) {
+      const prod = productCatalog[key];
+      if (!prod) return;
+
+      const modal = document.getElementById('productModal');
+      const body = document.getElementById('productModalContent');
+
+      let specsHtml = '';
+      for (const [k, v] of Object.entries(prod.specs)) {
+        specsHtml += `
+          <div class="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-brand-border text-xs">
+            <span class="text-brand-muted font-medium">${k}</span>
+            <span class="text-brand-dark font-bold">${v}</span>
+          </div>
+        `;
+      }
+
+      body.innerHTML = `
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded text-[10px] font-black uppercase bg-blue-50 text-brand-secondary border border-blue-200">${prod.category}</span>
+            <span class="text-xs text-brand-muted">&bull; 100% Genuine</span>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-serif font-extrabold text-brand-dark">${prod.title}</h3>
+            <p class="text-xs text-brand-gold font-medium mt-0.5">${prod.tagline}</p>
+          </div>
+
+          <p class="text-xs text-slate-600 leading-relaxed bg-brand-surfaceSoft p-4 rounded-2xl border border-brand-border">
+            ${prod.desc}
+          </p>
+
+          <div class="bg-brand-surfaceSoft p-4 rounded-2xl border border-brand-border space-y-1">
+            <p class="text-xs font-bold text-brand-dark uppercase tracking-wider mb-2">Technical Specifications</p>
+            ${specsHtml}
+          </div>
+
+          <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+            <a 
+              href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints%2C%20I%20would%20like%20to%20order%20or%20inquire%20about%20${encodeURIComponent(prod.title)}" 
+              target="_blank" 
+              rel="noopener"
+              class="w-full sm:flex-1 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm"
+            >
+              <i class="ph ph-whatsapp-logo text-base"></i>
+              <span>Order via WhatsApp (+92 332 5007200)</span>
+            </a>
+            <button onclick="closeProductModal()" class="w-full sm:w-auto px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition">
+              Close
+            </button>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Calculator Switch & Computations
+    function switchCalc(type) {
+      const bw = document.getElementById('btnCalcWall');
+      const bwd = document.getElementById('btnCalcWood');
+      const pw = document.getElementById('boxWallCalc');
+      const pwd = document.getElementById('boxWoodCalc');
+
+      if (type === 'wall') {
+        bw.className = 'px-6 py-2.5 rounded-xl text-xs font-bold transition bg-brand-primary text-white shadow-sm';
+        bwd.className = 'px-6 py-2.5 rounded-xl text-xs font-bold transition text-brand-muted hover:text-brand-dark';
+        pw.classList.remove('hidden');
+        pwd.classList.add('hidden');
+        calculateWallPaint();
+      } else {
+        bwd.className = 'px-6 py-2.5 rounded-xl text-xs font-bold transition bg-brand-wood text-white shadow-sm';
+        bw.className = 'px-6 py-2.5 rounded-xl text-xs font-bold transition text-brand-muted hover:text-brand-dark';
+        pwd.classList.remove('hidden');
+        pw.classList.add('hidden');
+        calculateWoodKit();
+      }
+    }
+
+    function calculateWallPaint() {
+      const l = parseFloat(document.getElementById('inpWallLength').value) || 0;
+      const w = parseFloat(document.getElementById('inpWallWidth').value) || 0;
+      const h = parseFloat(document.getElementById('inpWallHeight').value) || 0;
+      const coats = parseInt(document.getElementById('inpWallCoats').value) || 2;
+      const doors = parseInt(document.getElementById('inpWallDoors').value) || 0;
+      const win = parseInt(document.getElementById('inpWallWindows').value) || 0;
+      const ceil = document.getElementById('chkIncludeCeiling').checked;
+      const coverageRate = parseFloat(document.getElementById('wallProductSelect').value) || 120;
+
+      let wallArea = 2 * (l + w) * h;
+      if (ceil) wallArea += (l * w);
+
+      const net = Math.max(0, wallArea - (doors * 21 + win * 15));
+      const liters = (net * coats) / coverageRate;
+      const gallons = liters / 3.785;
+
+      document.getElementById('outWallArea').textContent = `${Math.round(net)} sq ft`;
+      document.getElementById('outWallLiters').textContent = liters.toFixed(1);
+      document.getElementById('outWallGallons').textContent = gallons.toFixed(1);
+
+      let pack = "";
+      if (liters > 16) {
+        const drums = Math.floor(liters / 16);
+        const rem = Math.ceil((liters % 16) / 4);
+        pack = `${drums}x Drum (16L)` + (rem > 0 ? ` + ${rem}x Gallon (4L)` : '');
+      } else if (liters > 4) {
+        pack = `${Math.ceil(liters / 4)}x Gallon (4L)`;
+      } else {
+        pack = `${Math.ceil(liters)}x 1L Can(s)`;
+      }
+      document.getElementById('outWallPacks').textContent = pack;
+    }
+
+    function calculateWoodKit() {
+      const area = parseFloat(document.getElementById('inpWoodArea').value) || 0;
+      const coats = parseInt(document.getElementById('inpWoodCoats').value) || 2;
+      const topcoatCov = parseFloat(document.getElementById('woodProductSelect').value) || 110;
+
+      const sealer = (area / 130).toFixed(1);
+      const stain = (area / 140).toFixed(1);
+      const topcoat = ((area * coats) / topcoatCov).toFixed(1);
+      const thinner = ((parseFloat(sealer) + parseFloat(topcoat)) * 0.25).toFixed(1);
+
+      document.getElementById('outWoodSealer').textContent = `${sealer} L`;
+      document.getElementById('outWoodStain').textContent = `${stain} L`;
+      document.getElementById('outWoodTopcoat').textContent = `${topcoat} L`;
+      document.getElementById('outWoodThinner').textContent = `${thinner} L`;
+    }
+
+    function applyWoodPreset() {
+      const val = document.getElementById('woodPresetSelect').value;
+      const inp = document.getElementById('inpWoodArea');
+      if (val === 'doors') inp.value = 130;
+      else if (val === 'dining') inp.value = 95;
+      else if (val === 'stairs') inp.value = 160;
+      else if (val === 'floor') inp.value = 225;
+      calculateWoodKit();
+    }
+
+    // WhatsApp Message Triggers (Always +923325007200)
+    function shareWallWhatsApp() {
+      const liters = document.getElementById('outWallLiters').textContent;
+      const gallons = document.getElementById('outWallGallons').textContent;
+      const area = document.getElementById('outWallArea').textContent;
+      const packs = document.getElementById('outWallPacks').textContent;
+      const text = encodeURIComponent(`Hi Ombré Paints, I calculated my wall paint needs:\n- Area: ${area}\n- Volume: ${liters} Liters (~${gallons} Gallons)\n- Suggested Packs: ${packs}\nPlease provide color card and pricing.`);
+      window.open(`https://wa.me/923325007200?text=${text}`, '_blank');
+    }
+
+    function shareWoodWhatsApp() {
+      const area = document.getElementById('inpWoodArea').value;
+      const sealer = document.getElementById('outWoodSealer').textContent;
+      const stain = document.getElementById('outWoodStain').textContent;
+      const topcoat = document.getElementById('outWoodTopcoat').textContent;
+      const thinner = document.getElementById('outWoodThinner').textContent;
+      const text = encodeURIComponent(`Hi Wood Dyer, I estimated my timber finishing project:\n- Surface: ${area} sq ft\n- WD Sealer: ${sealer}\n- WD Wood Colour: ${stain}\n- WD Topcoat: ${topcoat}\n- WD Thinner: ${thinner}\nPlease share discounted contractor package.`);
+      window.open(`https://wa.me/923325007200?text=${text}`, '_blank');
+    }
+
+    function submitDealerForm(e) {
+      e.preventDefault();
+      const shop = document.getElementById('inpShopName').value;
+      const owner = document.getElementById('inpOwnerName').value;
+      const phone = document.getElementById('inpDealerPhone').value;
+      const city = document.getElementById('inpDealerCity').value;
+      const interest = document.getElementById('inpDealerInterest').value;
+
+      const text = encodeURIComponent(`New Dealership Application:\nStore: ${shop}\nOwner: ${owner}\nContact: ${phone}\nCity: ${city}\nInterest: ${interest}`);
+      window.open(`https://wa.me/923325007200?text=${text}`, '_blank');
+    }
+
+    function submitContactForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('inpContactName').value;
+      const city = document.getElementById('inpContactCity').value;
+      const msg = document.getElementById('inpContactMsg').value;
+
+      const text = encodeURIComponent(`Customer Inquiry:\nName: ${name}\nCity: ${city}\nMessage: ${msg}`);
+      window.open(`https://wa.me/923325007200?text=${text}`, '_blank');
+    }
+
+    window.onload = function() {
+      calculateWallPaint();
+      calculateWoodKit();
+    };
+  </script>
 </body>
 </html>
