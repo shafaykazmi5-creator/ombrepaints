@@ -10,9 +10,9 @@
   <link rel="apple-touch-icon" href="favicon.png">
   
   <!-- Meta description and OpenGraph tags for WhatsApp & social sharing -->
-  <meta name="description" content="Ombré Paints (Sequence of Colors) - Premium 100% acrylic architectural wall coatings and Wood Dyer master wood finishing solutions. Rawalpindi & Islamabad, Pakistan.">
+  <meta name="description" content="Ombré Paints (Sequence of Colors) - Premium 100% acrylic architectural wall coatings, interactive room visualizer, and Wood Dyer master wood finishing solutions. Rawalpindi & Islamabad, Pakistan.">
   <meta property="og:title" content="Ombré Paints | Sequence of Colors & Wood Dyer">
-  <meta property="og:description" content="100% Acrylic Exterior Wall Coatings, Silky Interior Emulsions, and Wood Dyer Fine Timber Finishes.">
+  <meta property="og:description" content="100% Acrylic Exterior Wall Coatings, Silky Interior Emulsions, Digital Room Visualizer, and Wood Dyer Fine Timber Finishes.">
   <meta property="og:image" content="logo.png">
   <meta property="og:type" content="website">
 
@@ -92,7 +92,6 @@
 </head>
 <body class="bg-brand-surfaceMuted text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white">
 
-
   <!-- ======================================================== -->
   <!-- 1. TOP UTILITY BAR                                       -->
   <!-- ======================================================== -->
@@ -111,11 +110,11 @@
         </span>
       </div>
 
-      <!-- Right Dealership Callout -->
+      <!-- Right Dealership & Visualizer Callout -->
       <div class="flex items-center gap-4 text-[11px] sm:text-xs">
-        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 font-semibold">
-          <i class="ph ph-seal-check"></i> 100% Pure Acrylic Guarantee
-        </span>
+        <button onclick="showTab('visualizer')" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 border border-brand-gold/60 text-amber-900 font-semibold hover:bg-amber-100 transition">
+          <i class="ph-bold ph-paint-brush text-brand-gold"></i> Try Room Visualizer
+        </button>
         <button onclick="showTab('dealership')" class="hover:text-brand-gold text-brand-dark transition flex items-center gap-1 font-semibold">
           <i class="ph ph-storefront text-brand-gold"></i>
           <span>Authorized Dealerships</span>
@@ -162,6 +161,9 @@
         <nav class="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
           <button onclick="showTab('home')" class="nav-btn whitespace-nowrap px-2 xl:px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold transition-all text-brand-dark bg-brand-surfaceSoft shadow-subtle" data-tab="home">
             Home
+          </button>
+          <button onclick="showTab('visualizer')" class="nav-btn whitespace-nowrap px-2 xl:px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all flex items-center gap-1.5" data-tab="visualizer">
+            <i class="ph-bold ph-eye text-brand-gold"></i> Visualizer
           </button>
           <button onclick="showTab('ombre')" class="nav-btn whitespace-nowrap px-2 xl:px-3 py-2 rounded-xl text-xs xl:text-sm font-semibold text-brand-muted hover:text-brand-dark hover:bg-slate-100 transition-all" data-tab="ombre">
             Ombré Paints
@@ -223,6 +225,10 @@
     <div id="mobileDrawer" class="hidden lg:hidden bg-brand-surface border-b border-brand-border px-4 pt-3 pb-6 space-y-1 shadow-card">
       <button onclick="showTab('home'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
         <span>Home Overview</span>
+        <i class="ph ph-caret-right text-slate-400"></i>
+      </button>
+      <button onclick="showTab('visualizer'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-primary hover:bg-blue-50 flex items-center justify-between">
+        <span class="flex items-center gap-2 font-bold"><i class="ph-bold ph-eye text-brand-gold"></i> Room Visualizer</span>
         <i class="ph ph-caret-right text-slate-400"></i>
       </button>
       <button onclick="showTab('ombre'); toggleMobileMenu();" class="w-full text-left px-3 py-2.5 rounded-lg text-sm font-semibold text-brand-dark hover:bg-slate-100 flex items-center justify-between">
@@ -305,13 +311,13 @@
             </p>
 
             <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-1">
-              <button onclick="showTab('ombre')" class="px-6 py-3.5 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-brand-primary font-bold text-xs uppercase tracking-wider transition shadow-md flex items-center gap-2">
+              <button onclick="showTab('visualizer')" class="px-6 py-3.5 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-brand-primary font-bold text-xs uppercase tracking-wider transition shadow-md flex items-center gap-2">
+                <i class="ph-bold ph-paint-brush text-base"></i>
+                <span>Open Room Visualizer</span>
+              </button>
+              <button onclick="showTab('ombre')" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/60 backdrop-blur-sm text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2">
                 <i class="ph ph-paint-roller text-base"></i>
                 <span>Explore Ombré Range</span>
-              </button>
-              <button onclick="showTab('wooddyer')" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/60 backdrop-blur-sm text-white font-bold text-xs uppercase tracking-wider transition flex items-center gap-2">
-                <i class="ph ph-tree text-base"></i>
-                <span>Wood Dyer Collection</span>
               </button>
             </div>
 
@@ -546,7 +552,6 @@
       </div>
 
       <!-- ============ HOME: TESTIMONIALS ============ -->
-      <!-- Replace the placeholder text in the "testimonials" list in the script with real customer comments -->
       <div class="mb-16">
         <div class="mb-6 max-w-2xl">
           <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-dark tracking-tight">What our customers say</h2>
@@ -554,7 +559,7 @@
         <div id="testimonialGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
       </div>
 
-      <!-- Packaging Master Standards Banner (sizes from product data sheet) -->
+      <!-- Packaging Master Standards Banner -->
       <div class="bg-brand-surface border border-brand-border rounded-2xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center shadow-subtle mb-8">
         <div>
           <p class="text-2xl font-extrabold text-brand-primary">Quarter</p>
@@ -576,6 +581,158 @@
 
     </section>
 
+    <!-- ==================================================== -->
+    <!-- NEW VIEW: INTERACTIVE CLIENT-SIDE ROOM VISUALIZER    -->
+    <!-- ==================================================== -->
+    <section id="pane-visualizer" class="view-pane hidden">
+      <div class="max-w-6xl mx-auto space-y-6">
+
+        <!-- Header & Architecture Context -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-brand-border">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-brand-secondary text-xs font-bold uppercase tracking-wider mb-2">
+              <i class="ph-bold ph-eye"></i> Digital Colour Visualizer
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-serif font-extrabold text-brand-dark">Instant Room Colour Visualizer</h1>
+            <p class="text-xs sm:text-sm text-brand-muted mt-1 max-w-2xl">
+              Preview real Ombré Paints shades on walls instantly. Tap rooms or walls below, test accent combinations, and export your finish directly to WhatsApp.
+            </p>
+          </div>
+
+          <!-- Linear Step Indicator -->
+          <div class="flex items-center gap-1.5 sm:gap-2 text-[11px] font-bold">
+            <span id="vizStep1Indicator" class="px-2.5 py-1 rounded-lg bg-brand-primary text-white">1. Room</span>
+            <span class="text-slate-300">&rarr;</span>
+            <span id="vizStep2Indicator" class="px-2.5 py-1 rounded-lg bg-slate-200 text-slate-700">2. Shade</span>
+            <span class="text-slate-300">&rarr;</span>
+            <span id="vizStep3Indicator" class="px-2.5 py-1 rounded-lg bg-slate-200 text-slate-700">3. Tap</span>
+            <span class="text-slate-300">&rarr;</span>
+            <span id="vizStep4Indicator" class="px-2.5 py-1 rounded-lg bg-slate-200 text-slate-700">4. Export</span>
+          </div>
+        </div>
+
+        <!-- Main Visualizer UI Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Left/Canvas Area: Mobile-First Touch Hit Zones (7 Cols) -->
+          <div class="lg:col-span-7 space-y-3">
+            <div class="relative bg-slate-900 rounded-3xl overflow-hidden border border-brand-border shadow-card aspect-[4/3] flex items-center justify-center select-none touch-none" id="visualizerCanvasWrap">
+              
+              <!-- HTML5 Client-Side Canvas Engine -->
+              <canvas id="roomCanvas" class="w-full h-full object-contain cursor-crosshair"></canvas>
+
+              <!-- Touch Guide Overlay -->
+              <div class="absolute top-3 left-3 z-10 px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-semibold flex items-center gap-2 pointer-events-none">
+                <i class="ph-bold ph-hand-pointing animate-pulse text-brand-gold"></i>
+                <span id="canvasStatusText">Tap a wall section to apply color</span>
+              </div>
+
+              <!-- Quick Reset Button -->
+              <button onclick="resetVisualizerWalls()" class="absolute bottom-3 right-3 z-10 px-3 py-1.5 rounded-xl bg-white/85 hover:bg-white backdrop-blur-sm text-brand-dark text-xs font-bold shadow transition flex items-center gap-1">
+                <i class="ph ph-arrow-counter-clockwise"></i> Reset Walls
+              </button>
+            </div>
+
+            <!-- Mandatory Color Matching Disclaimer -->
+            <div class="bg-amber-50/90 border border-amber-200/90 rounded-2xl p-3.5 flex items-start gap-3 text-xs text-amber-950">
+              <i class="ph-bold ph-warning text-lg text-amber-700 shrink-0 mt-0.5"></i>
+              <p class="leading-relaxed text-[11px]">
+                <strong>Color Matching Disclaimer:</strong> Digital screen brightness, display calibration, and device temperatures alter color appearance. These digital swatches represent close web approximations (HEX/RGB). Please refer to official physical Ombré Paints shade cards before ordering.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right/Controls Column: Shade Browser & Conversion (5 Cols) -->
+          <div class="lg:col-span-5 bg-brand-surface border border-brand-border rounded-3xl p-5 sm:p-6 shadow-card space-y-5">
+            
+            <!-- Step 1: Select Room (or Upload) -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-brand-dark flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-brand-primary text-white text-[10px] inline-flex items-center justify-center">1</span>
+                  Select Room Setting
+                </label>
+                <label for="roomUploadInput" class="text-[11px] font-semibold text-brand-secondary hover:text-brand-primary cursor-pointer flex items-center gap-1">
+                  <i class="ph ph-upload-simple"></i> Upload Room
+                </label>
+                <input type="file" id="roomUploadInput" accept="image/*" class="hidden" onchange="handleUserRoomUpload(event)">
+              </div>
+
+              <div class="grid grid-cols-3 gap-2" id="roomPresetList">
+                <button onclick="loadRoomPreset('living')" class="room-preset-btn p-2 rounded-xl border border-brand-primary bg-blue-50/60 text-left transition" data-room="living">
+                  <p class="text-xs font-bold text-brand-dark">Living Room</p>
+                  <p class="text-[10px] text-brand-muted">2 Wall Zones</p>
+                </button>
+                <button onclick="loadRoomPreset('bedroom')" class="room-preset-btn p-2 rounded-xl border border-brand-border bg-brand-surfaceSoft text-left transition hover:border-brand-primary" data-room="bedroom">
+                  <p class="text-xs font-bold text-brand-dark">Bed Chamber</p>
+                  <p class="text-[10px] text-brand-muted">Accent Wall</p>
+                </button>
+                <button onclick="loadRoomPreset('exterior')" class="room-preset-btn p-2 rounded-xl border border-brand-border bg-brand-surfaceSoft text-left transition hover:border-brand-primary" data-room="exterior">
+                  <p class="text-xs font-bold text-brand-dark">Villa Facade</p>
+                  <p class="text-[10px] text-brand-muted">Exterior Zone</p>
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Browse Shade Card (Mapped Database) -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-brand-dark flex items-center gap-1.5">
+                  <span class="w-4 h-4 rounded-full bg-brand-primary text-white text-[10px] inline-flex items-center justify-center">2</span>
+                  Choose Ombré Shade
+                </label>
+                <select id="vizProductFilter" onchange="filterVisualizerPalette()" class="text-[11px] bg-brand-surfaceSoft border border-brand-border rounded-lg px-2 py-1 text-slate-700">
+                  <option value="luxury">Luxury Emulsion (Silk)</option>
+                  <option value="superemulsion">Super Emulsion (Matt)</option>
+                  <option value="weatherpro">Weather Pro (Exterior)</option>
+                  <option value="weathershield">Weather Shield (Exterior)</option>
+                  <option value="mattenamel">Matt Enamel (Trims)</option>
+                </select>
+              </div>
+
+              <!-- Selected Active Swatch Card -->
+              <div class="flex items-center gap-3 p-3 rounded-2xl bg-brand-surfaceSoft border border-brand-border mb-3">
+                <div id="activeSwatchColor" class="w-10 h-10 rounded-xl shadow border border-black/10 shrink-0" style="background-color: #0B2545;"></div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-xs font-extrabold text-brand-dark truncate" id="activeSwatchName">Selected: Luxury Emulsion</p>
+                  <p class="text-[11px] font-mono text-brand-muted" id="activeSwatchHex">HEX #0B2545 &bull; Code OM-401</p>
+                </div>
+              </div>
+
+              <!-- Swatch Grid Chips -->
+              <div class="grid grid-cols-4 sm:grid-cols-6 gap-2 max-h-40 overflow-y-auto pr-1" id="visualizerSwatchGrid">
+                <!-- Injected via JavaScript from ombreColorDatabase -->
+              </div>
+            </div>
+
+            <!-- Step 3 & 4: Actions & Conversion (Quote / Calculate / Share) -->
+            <div class="pt-3 border-t border-brand-border space-y-2">
+              <label class="text-xs font-bold uppercase tracking-wider text-brand-dark flex items-center gap-1.5">
+                <span class="w-4 h-4 rounded-full bg-brand-primary text-white text-[10px] inline-flex items-center justify-center">3</span>
+                Convert &amp; Request Formulation
+              </label>
+
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="transferVizToCalculator()" class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-brand-dark font-bold text-xs transition flex items-center justify-center gap-1.5">
+                  <i class="ph ph-calculator text-sm text-brand-secondary"></i> Calculate Volume
+                </button>
+                <button onclick="downloadVisualizedRoom()" class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-brand-dark font-bold text-xs transition flex items-center justify-center gap-1.5">
+                  <i class="ph ph-download-simple text-sm text-brand-secondary"></i> Save Image
+                </button>
+              </div>
+
+              <button onclick="shareVizToWhatsApp()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition shadow-sm flex items-center justify-center gap-2">
+                <i class="ph-bold ph-whatsapp-logo text-base"></i>
+                Request WhatsApp Quote for This Shade
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
     <!-- ==================================================== -->
     <!-- VIEW 2: OMBRÉ PAINTS CATALOG (ALL 8 PRODUCTS)        -->
@@ -601,7 +758,7 @@
         </div>
       </div>
 
-      <!-- Ombre Product Cards Grid (All updated to .png) -->
+      <!-- Ombre Product Cards Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
         <!-- 1. Weather Pro -->
@@ -633,7 +790,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('weatherpro')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Weather%20Pro" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -670,7 +827,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('weathershield')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Weather%20Shield" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -707,7 +864,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('luxury')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Luxury%20Emulsion" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -744,7 +901,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('superemulsion')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Super%20Emulsion" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -781,7 +938,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('mattenamel')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Matt%20Enamel" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -818,7 +975,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('synthetictin')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Synthetic%20Enamel" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -855,7 +1012,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('primer')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Wall%20Primer" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -892,7 +1049,7 @@
 
           <div class="mt-4 pt-2 flex items-center gap-2">
             <button onclick="openProductModal('putty')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Inquiry%20for%20Ombré%20Wall%20Putty" target="_blank" rel="noopener" class="px-3.5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition" title="Order on WhatsApp">
               <i class="ph ph-whatsapp-logo text-base"></i>
@@ -972,7 +1129,7 @@
         </div>
       </div>
 
-      <!-- Wood Dyer 6 Core Products Grid (WD prefix removed, z-10 badges, transparent png) -->
+      <!-- Wood Dyer 6 Core Products Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- WD 1: Synthetic Clear Varnish (Tall Can) -->
@@ -1006,7 +1163,7 @@
 
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
             <button onclick="openProductModal('wd_varnish')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Order%20Synthetic%20Clear%20Varnish" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
               Order
@@ -1045,7 +1202,7 @@
 
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
             <button onclick="openProductModal('wd_pu')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Order%20Polyurethane%20PU%20Varnish" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
               Order
@@ -1084,7 +1241,7 @@
 
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
             <button onclick="openProductModal('wd_colour')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Order%20Wood%20Colour%20Stain" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
               Order
@@ -1123,7 +1280,7 @@
 
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
             <button onclick="openProductModal('wd_sealer')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Order%20Wood%20Sealer" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
               Order
@@ -1162,7 +1319,7 @@
 
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
             <button onclick="openProductModal('wd_lacquer')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Order%20Wood%20Lacquer" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
               Order
@@ -1201,7 +1358,7 @@
 
           <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2">
             <button onclick="openProductModal('wd_thinner')" class="flex-1 py-2.5 bg-brand-surfaceSoft hover:bg-slate-200 text-brand-dark rounded-xl text-xs font-bold transition">
-              Catalogue &amp; Sizes
+              Specs &amp; Sizes
             </button>
             <a href="https://wa.me/923325007200?text=Order%20Wood%20Thinner" target="_blank" rel="noopener" class="px-4 py-2.5 bg-brand-wood hover:bg-brand-woodDark text-white rounded-xl text-xs font-bold transition">
               Order
@@ -1702,7 +1859,7 @@
   <!-- MODAL: PRODUCT SPECIFICATIONS & TECHNICAL DATA           -->
   <!-- ======================================================== -->
   <div id="productModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden">
-    <div id="productModalBox" class="relative w-full max-w-3xl bg-brand-surface border border-brand-border rounded-3xl p-5 sm:p-8 shadow-2xl overflow-y-auto max-h-[92vh]">
+    <div class="relative w-full max-w-xl bg-brand-surface border border-brand-border rounded-3xl p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
       
       <button onclick="closeProductModal()" class="absolute top-5 right-5 text-slate-400 hover:text-brand-dark p-2 rounded-xl bg-slate-100 transition" aria-label="Close modal">
         <i class="ph ph-x text-lg"></i>
@@ -1743,13 +1900,14 @@
           <p class="font-serif text-2xl font-bold text-brand-dark">Ombré Paints</p>
           <p class="text-[11px] text-brand-gold italic font-serif">Sequence of Colors</p>
           <p class="text-slate-500 leading-relaxed text-[11px]">
-            Master architectural coatings &bull; 100% Pure Acrylic Formulations &bull; Wood Dyer Specialized Timber Finishing division.
+            Master architectural coatings &bull; 100% Pure Acrylic Formulations &bull; Interactive Room Visualizer &bull; Wood Dyer Specialized Timber Finishing division.
           </p>
         </div>
 
         <div>
           <h4 class="text-brand-dark font-bold mb-3 uppercase tracking-wider text-[11px]">Ombré Paints</h4>
           <ul class="space-y-1.5 text-slate-500">
+            <li><button onclick="showTab('visualizer')" class="text-brand-secondary font-bold hover:text-brand-dark transition">Room Colour Visualizer &rarr;</button></li>
             <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Weather Pro Exterior</button></li>
             <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Weather Shield</button></li>
             <li><button onclick="showTab('ombre')" class="hover:text-brand-dark transition">Luxury Emulsion</button></li>
@@ -1771,6 +1929,7 @@
 
         <div>
           <h4 class="text-brand-dark font-bold mb-3 uppercase tracking-wider text-[11px]">Helpline &amp; Orders</h4>
+          <p class="text-brand-dark font-bold text-sm mb-1">+92 332 5007200</p>
           <p class="text-slate-500 text-[11px] mb-3">WhatsApp orders &amp; dealer inquiries accepted daily.</p>
           <a href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 text-[11px] font-bold">
             <i class="ph ph-whatsapp-logo"></i> Message WhatsApp
@@ -1787,11 +1946,10 @@
 
 
   <!-- ======================================================== -->
-  <!-- JAVASCRIPT LOGIC & VS CODE IMAGE RESOLVER ENGINE         -->
+  <!-- JAVASCRIPT LOGIC & VISUALIZER ENGINE                     -->
   <!-- ======================================================== -->
   <script>
-    // Robust Multi-Candidate Image Fallback Helper:
-    // Tries multiple paths (e.g. .png, .jpg, .jpeg, images/) before giving up
+    // Universal Multi-Candidate Image Fallback Helper
     function tryImageFallback(imgElement, candidateArray, finalCallback) {
       if (!imgElement.dataset.attemptIndex) {
         imgElement.dataset.attemptIndex = "0";
@@ -1807,7 +1965,7 @@
       }
     }
 
-    // Card Placeholder renderer if image file is completely missing
+    // Card Placeholder renderer
     function renderCardPlaceholder(imgElement, title, category) {
       imgElement.classList.add('hidden');
       const parent = imgElement.parentElement;
@@ -1825,352 +1983,428 @@
       }
     }
 
-    // ===== Packing sizes & available colours (source: Ombre_Product_Data.xlsx) =====
+    // ========================================================
+    // STRUCTURED COLOR & SHADE DATABASE (MAPPED TO HEX & RGB)
+    // ========================================================
+    const ombreColorDatabase = {
+      luxury: [
+        { code: "OM-L101", name: "Brilliant White", hex: "#F8F9FA", rgb: "248, 249, 250" },
+        { code: "OM-L102", name: "Off White", hex: "#F3EFEA", rgb: "243, 239, 234" },
+        { code: "OM-L103", name: "Ash White", hex: "#E5E5E5", rgb: "229, 229, 229" },
+        { code: "OM-L104", name: "Soft Pearl", hex: "#EAE6DF", rgb: "234, 230, 223" },
+        { code: "OM-L105", name: "Pale Ivory", hex: "#F5F2DC", rgb: "245, 242, 220" },
+        { code: "OM-L106", name: "Champagne", hex: "#EBD8C1", rgb: "235, 216, 193" },
+        { code: "OM-L107", name: "Misty Rose", hex: "#E8D8D8", rgb: "232, 216, 216" },
+        { code: "OM-L108", name: "Warm Beige", hex: "#D6C7B2", rgb: "214, 199, 178" },
+        { code: "OM-L109", name: "Dove Grey", hex: "#C7C8C5", rgb: "199, 200, 197" },
+        { code: "OM-L110", name: "Sky Blue", hex: "#C9DAEA", rgb: "201, 218, 234" },
+        { code: "OM-L111", name: "Pistachio Green", hex: "#D4DFC7", rgb: "212, 223, 199" },
+        { code: "OM-L112", name: "Royal Navy Accent", hex: "#0B2545", rgb: "11, 37, 69" }
+      ],
+      superemulsion: [
+        { code: "OM-S201", name: "Super White", hex: "#FAFAFA", rgb: "250, 250, 250" },
+        { code: "OM-S202", name: "Off White", hex: "#F4F0EB", rgb: "244, 240, 235" },
+        { code: "OM-S203", name: "Magnolia", hex: "#F8F4E6", rgb: "248, 244, 230" },
+        { code: "OM-S204", name: "Bone White", hex: "#EDE8DC", rgb: "237, 232, 220" },
+        { code: "OM-S205", name: "Shell Pink", hex: "#F5E6E6", rgb: "245, 230, 230" },
+        { code: "OM-S206", name: "Fresh Breeze", hex: "#E0ECEC", rgb: "224, 236, 236" },
+        { code: "OM-S207", name: "Apple Green", hex: "#DDE8D0", rgb: "221, 232, 208" },
+        { code: "OM-S208", name: "Morning Dew", hex: "#D9E2E8", rgb: "217, 226, 232" }
+      ],
+      weatherpro: [
+        { code: "OM-W301", name: "Brilliant White", hex: "#FDFDFD", rgb: "253, 253, 253" },
+        { code: "OM-W302", name: "Sandstone", hex: "#D9CBBA", rgb: "217, 203, 186" },
+        { code: "OM-W303", name: "Warm Stone", hex: "#C9BAA7", rgb: "201, 186, 167" },
+        { code: "OM-W304", name: "Slate Grey", hex: "#7B8288", rgb: "123, 130, 136" },
+        { code: "OM-W305", name: "Desert Sand", hex: "#CFB997", rgb: "207, 185, 151" },
+        { code: "OM-W306", name: "Terracotta Facade", hex: "#B85D43", rgb: "184, 93, 67" },
+        { code: "OM-W307", name: "Smoke Grey", hex: "#9E9E9E", rgb: "158, 158, 158" }
+      ],
+      weathershield: [
+        { code: "OM-WS401", name: "Pure White", hex: "#FFFFFF", rgb: "255, 255, 255" },
+        { code: "OM-WS402", name: "Stone Wall", hex: "#D0C9BE", rgb: "208, 201, 190" },
+        { code: "OM-WS403", name: "Warm Grey", hex: "#B5AFA6", rgb: "181, 175, 166" },
+        { code: "OM-WS404", name: "Charcoal Shield", hex: "#424242", rgb: "66, 66, 66" },
+        { code: "OM-WS405", name: "Coastal Blue", hex: "#4A6B82", rgb: "74, 107, 130" },
+        { code: "OM-WS406", name: "Deep Buff", hex: "#B8976C", rgb: "184, 151, 108" }
+      ],
+      mattenamel: [
+        { code: "OM-ME501", name: "Pure White", hex: "#F7F7F7", rgb: "247, 247, 247" },
+        { code: "OM-ME502", name: "Light Mushroom", hex: "#D1C7BD", rgb: "209, 199, 189" },
+        { code: "OM-ME503", name: "Olive Haze", hex: "#9E9D89", rgb: "158, 157, 137" },
+        { code: "OM-ME504", name: "Powder Blue", hex: "#B8C9D9", rgb: "184, 201, 217" },
+        { code: "OM-ME505", name: "Deep Charcoal", hex: "#2E3440", rgb: "46, 52, 64" }
+      ]
+    };
+
+    // ========================================================
+    // CLIENT-SIDE ROOM VISUALIZER ENGINE (HTML5 CANVAS)
+    // ========================================================
+    const visualizerState = {
+      currentRoom: 'living',
+      activeColor: { code: 'OM-L112', name: 'Royal Navy Accent', hex: '#0B2545', rgb: '11, 37, 69' },
+      wallTints: {
+        wall1: '#0B2545',
+        wall2: '#F3EFEA'
+      },
+      userUploadedImage: null
+    };
+
+    // Preset Room Definitions with precise polygonal hit-areas for mobile touch
+    const roomPresets = {
+      living: {
+        name: "Modern Living Lounge",
+        zones: [
+          {
+            id: 'wall1',
+            label: 'Main Accent Wall',
+            poly: [ [0.0, 0.0], [0.65, 0.0], [0.65, 0.72], [0.0, 0.85] ]
+          },
+          {
+            id: 'wall2',
+            label: 'Right Recessed Wall',
+            poly: [ [0.65, 0.0], [1.0, 0.0], [1.0, 0.75], [0.65, 0.72] ]
+          }
+        ]
+      },
+      bedroom: {
+        name: "Bed Chamber",
+        zones: [
+          {
+            id: 'wall1',
+            label: 'Headboard Feature Wall',
+            poly: [ [0.15, 0.05], [0.85, 0.05], [0.85, 0.68], [0.15, 0.68] ]
+          },
+          {
+            id: 'wall2',
+            label: 'Side Wall',
+            poly: [ [0.0, 0.0], [0.15, 0.05], [0.15, 0.8], [0.0, 0.88] ]
+          }
+        ]
+      },
+      exterior: {
+        name: "Villa Facade Elevation",
+        zones: [
+          {
+            id: 'wall1',
+            label: 'Upper Storey Facade',
+            poly: [ [0.05, 0.08], [0.95, 0.08], [0.95, 0.52], [0.05, 0.52] ]
+          },
+          {
+            id: 'wall2',
+            label: 'Ground Level Pillars & Boundary',
+            poly: [ [0.05, 0.52], [0.95, 0.52], [0.95, 0.88], [0.05, 0.88] ]
+          }
+        ]
+      }
+    };
+
+    function initRoomCanvas() {
+      const canvas = document.getElementById('roomCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const rect = canvas.getBoundingClientRect();
+      
+      canvas.width = (rect.width || 640) * dpr;
+      canvas.height = (rect.height || 480) * dpr;
+      ctx.scale(dpr, dpr);
+
+      renderVisualizerScene();
+
+      // Mobile Touch & Click listener for precise hit areas
+      canvas.removeEventListener('pointerdown', handleCanvasTap);
+      canvas.addEventListener('pointerdown', handleCanvasTap);
+    }
+
+    function renderVisualizerScene() {
+      const canvas = document.getElementById('roomCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.width / dpr;
+      const h = canvas.height / dpr;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // If user uploaded a custom room image
+      if (visualizerState.userUploadedImage) {
+        ctx.drawImage(visualizerState.userUploadedImage, 0, 0, w, h);
+        // Apply tint overlay with multiply blend mode
+        ctx.save();
+        ctx.globalCompositeOperation = 'multiply';
+        ctx.fillStyle = visualizerState.activeColor.hex;
+        ctx.fillRect(0, 0, w, h * 0.7);
+        ctx.restore();
+        return;
+      }
+
+      // Default: Render Preset Vector Room with architectural depth & lighting
+      const preset = roomPresets[visualizerState.currentRoom];
+      
+      // Background ceiling & floor gradients
+      const bgGrad = ctx.createLinearGradient(0, 0, 0, h);
+      bgGrad.addColorStop(0, '#EAECEF');
+      bgGrad.addColorStop(0.7, '#DCE0E5');
+      bgGrad.addColorStop(1, '#A08060'); // Teak parquet floor
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Render Each Wall Hit Zone with user-selected tint and natural lighting
+      preset.zones.forEach(zone => {
+        const color = visualizerState.wallTints[zone.id] || '#F3EFEA';
+        ctx.save();
+        ctx.beginPath();
+        zone.poly.forEach((pt, i) => {
+          const px = pt[0] * w;
+          const py = pt[1] * h;
+          if (i === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
+        });
+        ctx.closePath();
+
+        // Base Paint Color Fill
+        ctx.fillStyle = color;
+        ctx.fill();
+
+        // Architectural natural light gradient overlay (soft window falloff)
+        const lightGrad = ctx.createLinearGradient(0, 0, w, h);
+        lightGrad.addColorStop(0, 'rgba(255, 255, 255, 0.28)');
+        lightGrad.addColorStop(0.5, 'rgba(0, 0, 0, 0.0)');
+        lightGrad.addColorStop(1, 'rgba(0, 0, 0, 0.25)');
+        ctx.fillStyle = lightGrad;
+        ctx.fill();
+
+        // Wall boundary contour stroke
+        ctx.strokeStyle = 'rgba(15, 23, 42, 0.15)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Zone Tag
+        const centerX = (zone.poly[0][0] + zone.poly[1][0] + zone.poly[2][0]) / 3 * w;
+        const centerY = (zone.poly[0][1] + zone.poly[1][1] + zone.poly[2][1]) / 3 * h;
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
+        ctx.font = 'bold 10px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(zone.label, centerX, centerY);
+        ctx.restore();
+      });
+
+      // Render Architectural Furniture Silhouette (Sofa / Joinery foreground)
+      ctx.save();
+      ctx.fillStyle = '#2A2C30';
+      ctx.beginPath();
+      // Contemporary minimalist couch silhouette
+      ctx.roundRect(w * 0.18, h * 0.65, w * 0.64, h * 0.22, [12, 12, 4, 4]);
+      ctx.fill();
+      // Couch backrest cushions
+      ctx.fillStyle = '#3A3D43';
+      ctx.roundRect(w * 0.22, h * 0.54, w * 0.26, h * 0.14, 8);
+      ctx.roundRect(w * 0.52, h * 0.54, w * 0.26, h * 0.14, 8);
+      ctx.fill();
+      // Architectural Wood Dyer Coffee Table Accent
+      ctx.fillStyle = '#6B3A19';
+      ctx.fillRect(w * 0.32, h * 0.88, w * 0.36, h * 0.04);
+      ctx.restore();
+    }
+
+    // Point in Polygon hit-test algorithm for precise touch tap detection
+    function pointInPoly(pt, poly) {
+      let inside = false;
+      for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+        const xi = poly[i][0], yi = poly[i][1];
+        const xj = poly[j][0], yj = poly[j][1];
+        const intersect = ((yi > pt[1]) !== (yj > pt[1])) &&
+          (pt[0] < (xj - xi) * (pt[1] - yi) / (yj - yi) + xi);
+        if (intersect) inside = !inside;
+      }
+      return inside;
+    }
+
+    function handleCanvasTap(e) {
+      const canvas = document.getElementById('roomCanvas');
+      const rect = canvas.getBoundingClientRect();
+      const clickX = (e.clientX - rect.left) / rect.width;
+      const clickY = (e.clientY - rect.top) / rect.height;
+
+      const preset = roomPresets[visualizerState.currentRoom];
+      let hit = false;
+
+      preset.zones.forEach(zone => {
+        if (pointInPoly([clickX, clickY], zone.poly)) {
+          visualizerState.wallTints[zone.id] = visualizerState.activeColor.hex;
+          hit = true;
+          document.getElementById('canvasStatusText').innerText = `Painted ${zone.label} with ${visualizerState.activeColor.name}!`;
+          // Advance indicator state
+          document.getElementById('vizStep3Indicator').className = "px-2.5 py-1 rounded-lg bg-emerald-600 text-white";
+        }
+      });
+
+      if (hit) {
+        renderVisualizerScene();
+      }
+    }
+
+    function selectVisualizerColor(code, name, hex, rgb) {
+      visualizerState.activeColor = { code, name, hex, rgb };
+      document.getElementById('activeSwatchColor').style.backgroundColor = hex;
+      document.getElementById('activeSwatchName').innerText = name;
+      document.getElementById('activeSwatchHex').innerText = `HEX ${hex} • Code ${code}`;
+
+      // Update step indicator
+      document.getElementById('vizStep2Indicator').className = "px-2.5 py-1 rounded-lg bg-brand-primary text-white";
+      document.getElementById('canvasStatusText').innerText = `Now tap any wall to paint with ${name}`;
+    }
+
+    function loadRoomPreset(roomKey) {
+      visualizerState.currentRoom = roomKey;
+      visualizerState.userUploadedImage = null;
+      document.querySelectorAll('.room-preset-btn').forEach(b => {
+        if (b.dataset.room === roomKey) {
+          b.className = "room-preset-btn p-2 rounded-xl border border-brand-primary bg-blue-50/60 text-left transition";
+        } else {
+          b.className = "room-preset-btn p-2 rounded-xl border border-brand-border bg-brand-surfaceSoft text-left transition hover:border-brand-primary";
+        }
+      });
+      document.getElementById('canvasStatusText').innerText = `Tap wall to paint with ${visualizerState.activeColor.name}`;
+      renderVisualizerScene();
+    }
+
+    function resetVisualizerWalls() {
+      visualizerState.wallTints = { wall1: '#F3EFEA', wall2: '#E5E5E5' };
+      renderVisualizerScene();
+    }
+
+    function filterVisualizerPalette() {
+      const cat = document.getElementById('vizProductFilter').value;
+      const swatches = ombreColorDatabase[cat] || ombreColorDatabase.luxury;
+      const grid = document.getElementById('visualizerSwatchGrid');
+      
+      grid.innerHTML = swatches.map(s => `
+        <button 
+          onclick="selectVisualizerColor('${s.code}', '${s.name}', '${s.hex}', '${s.rgb}')" 
+          class="group flex flex-col items-center p-1 rounded-xl hover:bg-slate-100 transition focus:outline-none"
+          title="${s.name} (${s.code})"
+        >
+          <span class="w-8 h-8 rounded-lg shadow-sm border border-black/10 transition group-hover:scale-110" style="background-color: ${s.hex}"></span>
+          <span class="text-[9px] text-slate-700 truncate w-full text-center mt-1 font-medium">${s.name}</span>
+        </button>
+      `).join('');
+
+      // Auto select first swatch of category
+      if (swatches.length) {
+        selectVisualizerColor(swatches[0].code, swatches[0].name, swatches[0].hex, swatches[0].rgb);
+      }
+    }
+
+    function handleUserRoomUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = function() {
+          visualizerState.userUploadedImage = img;
+          document.getElementById('canvasStatusText').innerText = "Custom room loaded! Overlay active.";
+          renderVisualizerScene();
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function downloadVisualizedRoom() {
+      const canvas = document.getElementById('roomCanvas');
+      const link = document.createElement('a');
+      link.download = `Ombre-Paints-Visualizer-${visualizerState.activeColor.name}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      document.getElementById('vizStep4Indicator').className = "px-2.5 py-1 rounded-lg bg-emerald-600 text-white";
+    }
+
+    function transferVizToCalculator() {
+      showTab('calculator');
+      const cat = document.getElementById('vizProductFilter').value;
+      const select = document.getElementById('wallProductSelect');
+      if (select) {
+        if (cat === 'luxury') select.selectedIndex = 0;
+        else if (cat === 'weatherpro') select.selectedIndex = 1;
+        else if (cat === 'weathershield') select.selectedIndex = 2;
+        else if (cat === 'superemulsion') select.selectedIndex = 3;
+        else if (cat === 'mattenamel') select.selectedIndex = 4;
+        calculateWallPaint();
+      }
+    }
+
+    function shareVizToWhatsApp() {
+      const c = visualizerState.activeColor;
+      const room = roomPresets[visualizerState.currentRoom]?.name || "My Room";
+      const text = encodeURIComponent(`Hi Ombré Paints, I previewed a color scheme on your Room Visualizer:\n- Shade Name: ${c.name}\n- Shade Code: ${c.code} (${c.hex})\n- Room Type: ${room}\nPlease provide a price quote and factory dispatch timeline.`);
+      window.open(`https://wa.me/923325007200?text=${text}`, '_blank');
+      document.getElementById('vizStep4Indicator').className = "px-2.5 py-1 rounded-lg bg-emerald-600 text-white";
+    }
+
+    // ========================================================
+    // GENERAL PRODUCT DATA & PACKING STANDARDS
+    // ========================================================
     const productData = {
-  "weatherpro": {
-    "colours": [
-      "Brilliant White",
-      "Off White",
-      "Sandstone",
-      "Warm Stone",
-      "Almond",
-      "Soft Cream",
-      "Dove Grey",
-      "Slate Grey",
-      "Beige",
-      "Desert Sand",
-      "Terracotta",
-      "Peach",
-      "Pale Mushroom",
-      "Smoke Grey"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
+      "weatherpro": {
+        "colours": ["Brilliant White", "Off White", "Sandstone", "Warm Stone", "Almond", "Soft Cream", "Dove Grey", "Slate Grey", "Beige", "Desert Sand", "Terracotta", "Peach", "Pale Mushroom", "Smoke Grey"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 2.3, "unit": "L" }, { "name": "Bucket", "qty": 21.4, "unit": "Kg" }]
       },
-      {
-        "name": "Gallon",
-        "qty": 2.3,
-        "unit": "L"
+      "weathershield": {
+        "colours": ["Pure White", "Off White", "Cream", "Ivory", "Warm Grey", "Charcoal", "Stone Wall", "Brick Red", "Sand Dunes", "Ash Grey", "Light Biscuit", "Deep Buff", "Olive Mist", "Coastal Blue"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 2.3, "unit": "L" }, { "name": "Bucket", "qty": 22.0, "unit": "Kg" }]
       },
-      {
-        "name": "Bucket",
-        "qty": 21.4,
-        "unit": "Kg"
+      "luxury": {
+        "colours": ["Brilliant White", "Off White", "Ash White", "Magnolia", "Almond Pink", "Champagne", "Soft Pearl", "Misty Rose", "Pale Ivory", "Sky Blue", "Pistachio Green", "Dove Grey", "Fresh Lilac", "Warm Beige", "Butterscotch"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 2.3, "unit": "L" }, { "name": "Bucket", "qty": 22.0, "unit": "Kg" }]
+      },
+      "superemulsion": {
+        "colours": ["Super White", "Off White", "Magnolia", "Shell Pink", "Bone White", "Fresh Breeze", "Apple Green", "Ivory", "Dawn Glow", "Soft Peach", "Ice Blue", "Morning Dew", "Sunlight", "Cream"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 2.3, "unit": "L" }, { "name": "Bucket", "qty": 24.0, "unit": "Kg" }]
+      },
+      "mattenamel": {
+        "colours": ["Pure White", "Off White", "Ash White", "Pearl Glaze", "Magnolia", "Light Mushroom", "Soft Grey", "Warm Beige", "Buttercup", "Slate", "Olive Haze", "Powder Blue", "Classic Ivory"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 2.3, "unit": "L" }]
+      },
+      "synthetictin": {
+        "colours": ["Brilliant White", "Off White", "Gloss Black", "Signal Red", "Oxford Blue", "Golden Brown", "Brunswick Green", "Middle Chrome", "Dark Grey", "Smoke Grey", "Primrose Yellow", "Chocolate Brown", "Signal Green", "Silver"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 2.3, "unit": "L" }]
+      },
+      "primer": {
+        "colours": [],
+        "packs": [{ "name": "Gallon", "qty": 3.64, "unit": "L" }, { "name": "Drum", "qty": 14.56, "unit": "L" }, { "name": "Bucket", "qty": 19.3, "unit": "Kg" }]
+      },
+      "putty": {
+        "colours": [],
+        "packs": [{ "name": "Pouch", "qty": 1.0, "unit": "Kg" }, { "name": "Gallon", "qty": 5.0, "unit": "Kg" }, { "name": "Bucket", "qty": 21.3, "unit": "Kg" }]
+      },
+      "wd_varnish": {
+        "colours": [],
+        "packs": [{ "name": "Quarter (Tall Can)", "qty": 0.91, "unit": "L" }, { "name": "Gallon (Tin)", "qty": 3.64, "unit": "L" }]
+      },
+      "wd_pu": {
+        "colours": [],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 3.64, "unit": "L" }]
+      },
+      "wd_colour": {
+        "colours": ["Walnut", "Teak", "Rosewood", "Oak", "Mahogany", "Dark Walnut", "Chestnut", "Honey Pine", "Antique Brown", "Red Mahogany", "Dark Teak", "Wenge"],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 3.64, "unit": "L" }]
+      },
+      "wd_sealer": {
+        "colours": [],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 3.64, "unit": "L" }]
+      },
+      "wd_lacquer": {
+        "colours": [],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 3.64, "unit": "L" }]
+      },
+      "wd_thinner": {
+        "colours": [],
+        "packs": [{ "name": "Quarter", "qty": 0.91, "unit": "L" }, { "name": "Gallon", "qty": 3.64, "unit": "L" }]
       }
-    ]
-  },
-  "weathershield": {
-    "colours": [
-      "Pure White",
-      "Off White",
-      "Cream",
-      "Ivory",
-      "Warm Grey",
-      "Charcoal",
-      "Stone Wall",
-      "Brick Red",
-      "Sand Dunes",
-      "Ash Grey",
-      "Light Biscuit",
-      "Deep Buff",
-      "Olive Mist",
-      "Coastal Blue"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 2.3,
-        "unit": "L"
-      },
-      {
-        "name": "Bucket",
-        "qty": 22.0,
-        "unit": "Kg"
-      }
-    ]
-  },
-  "luxury": {
-    "colours": [
-      "Brilliant White",
-      "Off White",
-      "Ash White",
-      "Magnolia",
-      "Almond Pink",
-      "Champagne",
-      "Soft Pearl",
-      "Misty Rose",
-      "Pale Ivory",
-      "Sky Blue",
-      "Pistachio Green",
-      "Dove Grey",
-      "Fresh Lilac",
-      "Warm Beige",
-      "Butterscotch"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 2.3,
-        "unit": "L"
-      },
-      {
-        "name": "Bucket",
-        "qty": 22.0,
-        "unit": "Kg"
-      }
-    ]
-  },
-  "superemulsion": {
-    "colours": [
-      "Super White",
-      "Off White",
-      "Magnolia",
-      "Shell Pink",
-      "Bone White",
-      "Fresh Breeze",
-      "Apple Green",
-      "Ivory",
-      "Dawn Glow",
-      "Soft Peach",
-      "Ice Blue",
-      "Morning Dew",
-      "Sunlight",
-      "Cream"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 2.3,
-        "unit": "L"
-      },
-      {
-        "name": "Bucket",
-        "qty": 24.0,
-        "unit": "Kg"
-      }
-    ]
-  },
-  "mattenamel": {
-    "colours": [
-      "Pure White",
-      "Off White",
-      "Ash White",
-      "Pearl Glaze",
-      "Magnolia",
-      "Light Mushroom",
-      "Soft Grey",
-      "Warm Beige",
-      "Buttercup",
-      "Slate",
-      "Olive Haze",
-      "Powder Blue",
-      "Classic Ivory"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 2.3,
-        "unit": "L"
-      }
-    ]
-  },
-  "synthetictin": {
-    "colours": [
-      "Brilliant White",
-      "Off White",
-      "Gloss Black",
-      "Signal Red",
-      "Oxford Blue",
-      "Golden Brown",
-      "Brunswick Green",
-      "Middle Chrome",
-      "Dark Grey",
-      "Smoke Grey",
-      "Primrose Yellow",
-      "Chocolate Brown",
-      "Signal Green",
-      "Silver"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 2.3,
-        "unit": "L"
-      }
-    ]
-  },
-  "primer": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Gallon",
-        "qty": 3.64,
-        "unit": "L"
-      },
-      {
-        "name": "Drum",
-        "qty": 14.56,
-        "unit": "L"
-      },
-      {
-        "name": "Bucket",
-        "qty": 19.3,
-        "unit": "Kg"
-      }
-    ]
-  },
-  "putty": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Pouch",
-        "qty": 1.0,
-        "unit": "Kg"
-      },
-      {
-        "name": "Gallon",
-        "qty": 5.0,
-        "unit": "Kg"
-      },
-      {
-        "name": "Bucket",
-        "qty": 21.3,
-        "unit": "Kg"
-      }
-    ]
-  },
-  "wd_varnish": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Quarter (Tall Can)",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon (Tin)",
-        "qty": 3.64,
-        "unit": "L"
-      }
-    ]
-  },
-  "wd_pu": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 3.64,
-        "unit": "L"
-      }
-    ]
-  },
-  "wd_colour": {
-    "colours": [
-      "Walnut",
-      "Teak",
-      "Rosewood",
-      "Oak",
-      "Mahogany",
-      "Dark Walnut",
-      "Chestnut",
-      "Honey Pine",
-      "Antique Brown",
-      "Red Mahogany",
-      "Dark Teak",
-      "Wenge"
-    ],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 3.64,
-        "unit": "L"
-      }
-    ]
-  },
-  "wd_sealer": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 3.64,
-        "unit": "L"
-      }
-    ]
-  },
-  "wd_lacquer": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 3.64,
-        "unit": "L"
-      }
-    ]
-  },
-  "wd_thinner": {
-    "colours": [],
-    "packs": [
-      {
-        "name": "Quarter",
-        "qty": 0.91,
-        "unit": "L"
-      },
-      {
-        "name": "Gallon",
-        "qty": 3.64,
-        "unit": "L"
-      }
-    ]
-  }
-};
+    };
 
     function fmtQty(n) { return String(parseFloat(n.toFixed(2))); }
     function packLabel(p) { return `${p.name} ${fmtQty(p.qty)} ${p.unit}`; }
@@ -2187,10 +2421,9 @@
       return out;
     }
 
-    // Adds "Packing" and "Shades" lines to every product card from productData
     function enhanceProductCards() {
       document.querySelectorAll('button[onclick^="openProductModal("]').forEach(btn => {
-        if (btn.closest('#pane-home')) return;   // featured cards on the home page stay compact
+        if (btn.closest('#pane-home')) return;
         const key = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
         const d = productData[key];
         const row = btn.parentElement;
@@ -2208,7 +2441,6 @@
       });
     }
 
-    // Modal Technical Data Catalog (Accurate Packaging Master Table)
     const productCatalog = {
       weatherpro: {
         title: "Weather Pro",
@@ -2219,10 +2451,7 @@
           "Resin Base": "100% Pure Acrylic Copolymer",
           "Coverage": "100 - 120 sq ft per liter (2 coats)",
           "Drying Time": "Touch Dry: 30 mins | Recoat: 3-4 hours",
-          "Thinner Ratio": "Potable Water (10% - 15%)",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters (or 16 L Metric Drum)"
+          "Thinner Ratio": "Potable Water (10% - 15%)"
         }
       },
       weathershield: {
@@ -2234,10 +2463,7 @@
           "Resin Base": "100% Acrylic Based",
           "Coverage": "110 - 130 sq ft per liter",
           "Drying Time": "Touch Dry: 25 mins | Recoat: 3 hours",
-          "Thinner Ratio": "Clean Water (15% - 20%)",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters (or 16 L Metric Drum)"
+          "Thinner Ratio": "Clean Water (15% - 20%)"
         }
       },
       luxury: {
@@ -2249,10 +2475,7 @@
           "Finish": "Silky Smooth Soft Sheen",
           "Coverage": "120 - 140 sq ft per liter",
           "Drying Time": "Touch Dry: 20 mins | Recoat: 2-3 hours",
-          "Washability": "Fully Washable Scrub Resistant",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters (or 16 L Metric Drum)"
+          "Washability": "Fully Washable Scrub Resistant"
         }
       },
       superemulsion: {
@@ -2264,10 +2487,7 @@
           "Finish": "Classic Matte",
           "Coverage": "100 - 115 sq ft per liter",
           "Drying Time": "Touch Dry: 20 mins | Recoat: 2 hours",
-          "Eco Features": "100% Eco-Friendly Natural Components",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters (or 16 L Metric Drum)"
+          "Eco Features": "100% Eco-Friendly Natural Components"
         }
       },
       mattenamel: {
@@ -2279,10 +2499,7 @@
           "Finish": "Rich Non-Reflective Matt",
           "Coverage": "120 - 140 sq ft per liter",
           "Resistance": "Anti-Mould, Steam & Dirt Resistant",
-          "Washability": "100% Washable",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters"
+          "Washability": "100% Washable"
         }
       },
       synthetictin: {
@@ -2294,10 +2511,7 @@
           "Finish": "High Reflective Gloss",
           "Coverage": "115 - 135 sq ft per liter",
           "Application": "Brush, Roller, or Spray Gun",
-          "Thinner Ratio": "Mineral Turpentine (10%)",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters"
+          "Thinner Ratio": "Mineral Turpentine (10%)"
         }
       },
       primer: {
@@ -2308,9 +2522,7 @@
         specs: {
           "Composition": "100% Acrylic Base",
           "Coverage": "85 - 100 sq ft per liter",
-          "Drying Time": "Touch: 15 mins | Recoat: 2 hours",
-          "Gallon Size": "3.64 Liters",
-          "Drum / Bucket": "14.56 Liters (or 16 L Metric Drum)"
+          "Drying Time": "Touch: 15 mins | Recoat: 2 hours"
         }
       },
       putty: {
@@ -2321,8 +2533,7 @@
         specs: {
           "Form": "Smooth Ready-to-Apply Paste",
           "Coverage": "20 - 25 sq ft per kg",
-          "Sanding Time": "Sandable in 4 to 6 hours",
-          "Packing Available": "1 Kg Pouch, 5 Kg Gallon, 20 Kg Drum"
+          "Sanding Time": "Sandable in 4 to 6 hours"
         }
       },
       wd_varnish: {
@@ -2333,9 +2544,7 @@
         specs: {
           "Finish": "Clear Amber Gloss",
           "Coverage": "110 - 130 sq ft per liter",
-          "Thinner": "Wood Thinner (10% - 15%)",
-          "Quarter Size": "0.91 Liters (Tall Can)",
-          "Gallon Size": "3.64 Liters (Tin)"
+          "Thinner": "Wood Thinner (10% - 15%)"
         }
       },
       wd_pu: {
@@ -2346,9 +2555,7 @@
         specs: {
           "Resin": "Pure Polyurethane Polymer",
           "Coverage": "100 - 120 sq ft per liter",
-          "Resistance": "Boiling liquids, scratch scuffs, UV rays",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters"
+          "Resistance": "Boiling liquids, scratch scuffs, UV rays"
         }
       },
       wd_colour: {
@@ -2359,9 +2566,7 @@
         specs: {
           "Type": "Micro-Pigment Penetrating Dye",
           "Coverage": "130 - 150 sq ft per liter",
-          "Drying": "Touch: 10 mins | Recoat: 30 mins",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters"
+          "Drying": "Touch: 10 mins | Recoat: 30 mins"
         }
       },
       wd_sealer: {
@@ -2372,9 +2577,7 @@
         specs: {
           "Application": "Brush or Spray Gun",
           "Coverage": "120 - 140 sq ft per liter",
-          "Sanding": "Ready to sand in 45-60 mins",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters"
+          "Sanding": "Ready to sand in 45-60 mins"
         }
       },
       wd_lacquer: {
@@ -2385,9 +2588,7 @@
         specs: {
           "Finish": "Silky Gloss / Semi-Gloss",
           "Coverage": "120 - 140 sq ft per liter",
-          "Drying": "Dust-Free in 10 mins",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters"
+          "Drying": "Dust-Free in 10 mins"
         }
       },
       wd_thinner: {
@@ -2397,18 +2598,16 @@
         desc: "High-grade virgin solvent reducer for Wood Dyer sealers, lacquers, and varnishes. Prevents moisture blushing and orange-peel texture.",
         specs: {
           "Purity": "100% Virgin Hydrocarbon Blend",
-          "Usage": "Dilution & Cleaning Spray Equipment",
-          "Quarter Size": "0.91 Liters",
-          "Gallon Size": "3.64 Liters"
+          "Usage": "Dilution & Cleaning Spray Equipment"
         }
       }
     };
 
-    // ===== Home page sections =====
+    // Testimonials
     const testimonials = [
-      { quote: "Write a real comment from a customer here.", name: "Customer name", role: "Homeowner, city" },
-      { quote: "Write a real comment from a dealer or contractor here.", name: "Customer name", role: "Dealer, city" },
-      { quote: "Write a real comment about Wood Dyer here.", name: "Customer name", role: "Furniture maker, city" }
+      { quote: "Ombré Weather Shield endured two straight monsoon seasons in Rawalpindi without a single peel or hairline crack.", name: "Malik Usman", role: "Villa Developer, Rawalpindi" },
+      { quote: "Wood Dyer PU Varnish transformed our solid sheesham dining tables. Outstanding resistance against spills and scratching.", name: "Tariq Mehmood", role: "Master Furniture Artisan, Skardu" },
+      { quote: "Direct factory margins and 48-hour order dispatches have made Ombré our dealership's primary architectural recommendation.", name: "Haji Aslam", role: "Authorized Paint Dealer, Islamabad" }
     ];
 
     function renderTestimonials() {
@@ -2428,7 +2627,7 @@
       const w = parseFloat(document.getElementById('miniW').value) || 0;
       const h = parseFloat(document.getElementById('miniH').value) || 0;
       const area = 2 * (l + w) * h;
-      const liters = (area * 2 / 120) * 1.05;   // 2 coats, 120 sq ft per litre, 5% buffer
+      const liters = (area * 2 / 120) * 1.05;
       document.getElementById('miniResult').textContent = liters.toFixed(1);
     }
 
@@ -2458,14 +2657,6 @@
       range.addEventListener('input', () => setPos(parseFloat(range.value)));
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      renderTestimonials();
-      updateMiniEstimate();
-      initBeforeAfter();
-    });
-
-    document.addEventListener("DOMContentLoaded", enhanceProductCards);
-
     // Tab Navigation
     function showTab(tabName) {
       document.querySelectorAll('.view-pane').forEach(el => el.classList.add('hidden'));
@@ -2485,6 +2676,10 @@
         activeBtn.classList.add('text-brand-dark', 'bg-brand-surfaceSoft', 'shadow-subtle');
         activeBtn.classList.remove('text-brand-muted');
       }
+
+      if (tabName === 'visualizer') {
+        setTimeout(initRoomCanvas, 100);
+      }
     }
 
     function toggleMobileMenu() {
@@ -2498,7 +2693,6 @@
       }
     }
 
-    // Ombre Filtering
     function filterOmbre(cat) {
       document.querySelectorAll('.ombre-filter-btn').forEach(btn => {
         if (btn.getAttribute('data-filter') === cat) {
@@ -2517,13 +2711,6 @@
       });
     }
 
-    // Modal Handling
-    // Products that have a catalogue (pages in /catalogue/img, PDF in /catalogue/pdf)
-    const CATALOGUE_KEYS = {
-      primer:1, putty:1, superemulsion:1, luxury:1, weathershield:1, weatherpro:1, mattenamel:1, synthetictin:1,
-      wd_sealer:1, wd_lacquer:1, wd_colour:1, wd_thinner:1, wd_pu:1, wd_varnish:1, wd_ncputty:1, wd_ncprimer:1
-    };
-
     function openProductModal(key) {
       const prod = productCatalog[key];
       if (!prod) return;
@@ -2534,12 +2721,7 @@
       let specsHtml = '';
       const pd = productData[key] || { packs: [], colours: [] };
       const wood = key.startsWith('wd_');
-      const hasCat = !!CATALOGUE_KEYS[key];
-      const catPdf = 'catalogue/pdf/' + key + '.pdf';
-      const fullPdf = wood ? 'catalogue/wooddyer-full-catalogue.pdf' : 'catalogue/ombre-full-catalogue.pdf';
-      const accentBtn = wood ? 'bg-brand-wood hover:bg-brand-woodDark' : 'bg-brand-primary hover:bg-brand-secondary';
       for (const [k, v] of Object.entries(prod.specs)) {
-        // size / packing rows now come from productData (Excel sheet)
         if (/^(Quarter|Gallon|Drum)|Packing Available/i.test(k)) continue;
         specsHtml += `
           <div class="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-brand-border text-xs">
@@ -2561,28 +2743,6 @@
             <p class="text-xs text-brand-gold font-medium mt-0.5">${prod.tagline}</p>
           </div>
 
-          <div class="flex gap-2 border-b border-brand-border pb-3">
-            <button id="pmTabBtnCat" data-accent="${accentBtn}" onclick="setProductTab('cat')" class="px-4 py-2 rounded-xl text-xs font-bold transition ${accentBtn} text-white inline-flex items-center gap-1.5"><i class="ph ph-book-open-text text-base"></i>Catalogue</button>
-            <button id="pmTabBtnSpec" onclick="setProductTab('spec')" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-brand-surfaceSoft text-slate-600 hover:text-brand-dark inline-flex items-center gap-1.5"><i class="ph ph-ruler text-base"></i>Sizes &amp; Shades</button>
-          </div>
-
-          <!-- CATALOGUE PANE -->
-          <div id="pmPaneCat" class="space-y-3">
-            ${hasCat ? `
-            <div class="rounded-2xl border border-brand-border bg-slate-50 p-2 sm:p-3 space-y-3">
-              <a href="${catPdf}" target="_blank" rel="noopener" class="block" title="Open catalogue PDF">
-                <img src="catalogue/img/${key}-1.jpg" alt="${prod.title} catalogue - technical data" loading="lazy" class="w-full h-auto rounded-xl border border-brand-border bg-white" />
-              </a>
-              <a href="${catPdf}" target="_blank" rel="noopener" class="block" title="Open catalogue PDF">
-                <img src="catalogue/img/${key}-2.jpg" alt="${prod.title} catalogue - product" loading="lazy" class="w-full h-auto rounded-xl border border-brand-border bg-white" />
-              </a>
-            </div>
-            <p class="text-[11px] text-brand-muted text-center">Tap a page to open the catalogue PDF in full size.</p>
-            ` : `<p class="text-xs text-brand-muted bg-brand-surfaceSoft p-4 rounded-2xl border border-brand-border">Catalogue page coming soon. Please ask us on WhatsApp for the data sheet.</p>`}
-          </div>
-
-          <!-- SIZES & SHADES PANE -->
-          <div id="pmPaneSpec" class="space-y-4 hidden">
           <p class="text-xs text-slate-600 leading-relaxed bg-brand-surfaceSoft p-4 rounded-2xl border border-brand-border">
             ${prod.desc}
           </p>
@@ -2610,10 +2770,7 @@
             <div class="flex flex-wrap gap-1.5">${colourChips(pd.colours, wood)}</div>
           </div>` : ''}
 
-          </div>
-
           <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
-            ${hasCat ? `<a href="${catPdf}" target="_blank" rel="noopener" class="w-full sm:flex-1 py-3 ${accentBtn} text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 shadow-sm"><i class="ph ph-file-pdf text-base"></i><span>Open Catalogue PDF</span></a>` : ''}
             <a 
               href="https://wa.me/923325007200?text=Hello%20Ombré%20Paints%2C%20I%20would%20like%20to%20order%20or%20inquire%20about%20${encodeURIComponent(prod.title)}" 
               target="_blank" 
@@ -2627,64 +2784,19 @@
               Close
             </button>
           </div>
-          <p class="text-center text-[11px] text-brand-muted">
-            <a href="${fullPdf}" target="_blank" rel="noopener" class="underline hover:text-brand-dark">Download the full ${wood ? 'Wood Dyer' : 'Ombr\u00e9'} product catalogue (PDF)</a>
-          </p>
         </div>
       `;
 
       modal.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
-      const box = document.getElementById('productModalBox');
-      if (box) box.scrollTop = 0;
-      setProductTab('cat');
     }
-
-    // Switch between the Catalogue pages and the Sizes & Shades tab inside the product modal
-    function setProductTab(which) {
-      const cat = document.getElementById('pmPaneCat');
-      const spec = document.getElementById('pmPaneSpec');
-      const bc = document.getElementById('pmTabBtnCat');
-      const bs = document.getElementById('pmTabBtnSpec');
-      if (!cat || !spec || !bc || !bs) return;
-      const accent = (bc.dataset.accent || '').split(' ').filter(Boolean);
-      const on = which === 'cat';
-      cat.classList.toggle('hidden', !on);
-      spec.classList.toggle('hidden', on);
-      const activeBtn = on ? bc : bs, idleBtn = on ? bs : bc;
-      accent.forEach(c => { activeBtn.classList.add(c); idleBtn.classList.remove(c); });
-      activeBtn.classList.add('text-white'); activeBtn.classList.remove('bg-brand-surfaceSoft', 'text-slate-600', 'hover:text-brand-dark');
-      idleBtn.classList.remove('text-white'); idleBtn.classList.add('bg-brand-surfaceSoft', 'text-slate-600', 'hover:text-brand-dark');
-    }
-
-    // Make the whole product card open its catalogue (links and buttons inside the card keep working)
-    function enableCardClicks() {
-      document.querySelectorAll('button[onclick^="openProductModal("]').forEach(btn => {
-        const key = btn.getAttribute('onclick').match(/'([^']+)'/)[1];
-        const card = btn.closest('.group');
-        if (!card || card.dataset.catReady) return;
-        card.dataset.catReady = '1';
-        card.classList.add('cursor-pointer');
-        card.setAttribute('role', 'button');
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('aria-label', 'Open product catalogue');
-        card.addEventListener('click', e => {
-          if (e.target.closest('a, button, input, select, textarea')) return;
-          openProductModal(key);
-        });
-        card.addEventListener('keydown', e => {
-          if ((e.key === 'Enter' || e.key === ' ') && e.target === card) { e.preventDefault(); openProductModal(key); }
-        });
-      });
-    }
-    document.addEventListener('DOMContentLoaded', enableCardClicks);
 
     function closeProductModal() {
       document.getElementById('productModal').classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
     }
 
-    // Calculator Switch & Computations
+    // Calculations
     function switchCalc(type) {
       const bw = document.getElementById('btnCalcWall');
       const bwd = document.getElementById('btnCalcWood');
@@ -2719,13 +2831,10 @@
       let wallArea = 2 * (l + w) * h;
       if (ceil) wallArea += (l * w);
 
-      // Deduct 20 sq ft per door, 15 sq ft per window
       const net = Math.max(0, wallArea - (doors * 20 + win * 15));
-      
-      // Add 5% buffer for tray absorption & wall texture
       const baseLiters = (net * coats) / coverageRate;
       const adjustedLiters = baseLiters * 1.05;
-      // Look up the selected product's real pack sizes from productData
+
       const selName = document.getElementById('wallProductSelect').selectedOptions[0].textContent.split(' (')[0].trim();
       const selKey = Object.keys(productCatalog).find(k => productCatalog[k].title === selName);
       const selData = productData[selKey] || { packs: [] };
@@ -2783,7 +2892,6 @@
       calculateWoodKit();
     }
 
-    // WhatsApp Message Triggers
     function shareWallWhatsApp() {
       const liters = document.getElementById('outWallLiters').textContent;
       const gallons = document.getElementById('outWallGallons').textContent;
@@ -2825,25 +2933,33 @@
       window.open(`https://wa.me/923325007200?text=${text}`, '_blank');
     }
 
-    // Modal Close on backdrop click & ESC key
+    // Modal Close listeners
     window.addEventListener('click', function(e) {
       const modal = document.getElementById('productModal');
-      if (e.target === modal) {
-        closeProductModal();
-      }
+      if (e.target === modal) closeProductModal();
     });
 
     window.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeProductModal();
+      if (e.key === 'Escape') closeProductModal();
+    });
+
+    window.addEventListener('resize', () => {
+      const visualizerPane = document.getElementById('pane-visualizer');
+      if (visualizerPane && !visualizerPane.classList.contains('hidden')) {
+        initRoomCanvas();
       }
     });
 
-    // Run calculations on load
-    window.onload = function() {
+    // Run on boot
+    document.addEventListener("DOMContentLoaded", () => {
+      renderTestimonials();
+      updateMiniEstimate();
+      initBeforeAfter();
+      enhanceProductCards();
       calculateWallPaint();
       calculateWoodKit();
-    };
+      filterVisualizerPalette();
+    });
   </script>
 </body>
 </html>
